@@ -1,6 +1,5 @@
-// import React from 'react'
-
 import Sidebar from '../sidebar/Sidebar'
+import './navbar.scss'
 import { motion } from 'motion/react'
 
 const Navbar = () => {
@@ -14,20 +13,20 @@ const Navbar = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          Fadhola Asandi MP{' '}
+          My Portofolio
         </motion.span>
         <div className="social">
           <a href="#">
-            <img src='"/facebook.png' alt=""></img>
+            <img src="/facebook.png" alt=""></img>
           </a>
           <a href="#">
-            <img src='"/instagram.png' alt=""></img>
+            <img src="/instagram.png" alt=""></img>
           </a>
           <a href="#">
-            <img src='"/youtube.png' alt=""></img>
+            <img src="/youtube.png" alt=""></img>
           </a>
           <a href="#">
-            <img src='"/dribble.png' alt=""></img>
+            <img src="/dribbble.png" alt=""></img>
           </a>
         </div>
       </div>
