@@ -1,0 +1,149 @@
+/* SECTION UTAMA */
+.services-section {
+  /* background-color: #1b1b1b; */
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+/* JUDUL & SUBJUDUL */
+.services-title,
+.skills-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #36ba98;
+}
+
+.services-subtitle {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+
+/* GRID CARD SERVICES */
+.services-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+}
+
+/* Tampilan mobile: 1 kolom */
+.services-grid {
+  grid-template-columns: 1fr;
+}
+
+/* Tampilan tablet dan desktop: 2 kolom */
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Setiap card */
+.service-card {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Card full width (untuk card ketiga) */
+.full-width {
+  grid-column: span 1; /* Default untuk mobile */
+}
+
+@media (min-width: 768px) {
+  .full-width {
+    grid-column: span 2;
+  }
+}
+
+.service-card-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #36ba98;
+}
+
+.service-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+/* BAGIAN SKILLS (Slider Horizontal) */
+.skills-slider {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 1rem;
+  height: 120px;
+}
+
+.skills-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+}
+
+/* ITEM SKILL */
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+/* LINGKARAN PROGRESS */
+.skill-circle-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.skill-circle {
+  transform: rotate(-90deg);
+}
+
+.circle-bg {
+  stroke: #333;
+  stroke-width: 10;
+}
+
+.circle-progress {
+  stroke: #36ba98;
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.skill-name {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+/* Responsive Adjustment untuk Skill Slider */
+@media (max-width: 480px) {
+  .skills-slider {
+    height: 100px;
+  }
+
+  .skill-circle-container {
+    width: 60px;
+    height: 60px;
+  }
+
+  .skill-name {
+    font-size: 0.75rem;
+  }
+}

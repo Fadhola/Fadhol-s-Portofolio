@@ -1,0 +1,166 @@
+/* SECTION UTAMA */
+.certificate-hero {
+  /* background: radial-gradient(circle, #0f0f0f 0%, #1b1b1b 100%); */
+  min-height: 100vh;
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* JUDUL */
+.certificate-heading {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #36ba98;
+}
+
+/* CONTAINER KARTU */
+.certificate-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ITEM KARTU (Horizontal) */
+.certificate-item {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  width: 340px; /* Lebar lebih besar */
+  height: 240px; /* Tinggi lebih kecil */
+  transform-origin: center center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 1rem;
+}
+
+/* Gambar di dalam kartu */
+.certificate-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  z-index: 0;
+}
+
+/* Judul di bagian bawah kartu dengan overlay */
+.certificate-item p {
+  margin: 0;
+  z-index: 1;
+  color: #fff;
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 0.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Sudut kemiringan (tilt) berbeda tiap kartu */
+.card-1 {
+  transform: rotate(-5deg);
+}
+.card-2 {
+  transform: rotate(5deg);
+}
+.card-3 {
+  transform: rotate(-3deg);
+}
+.card-4 {
+  transform: rotate(4deg);
+}
+
+/* Efek hover: kartu kembali tegak dan sedikit terangkat */
+.certificate-item:hover {
+  transform: rotate(0deg) translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: #2a2a2a;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.modal-content h2 {
+  color: #36ba98;
+  margin-bottom: 1rem;
+}
+
+/* MEDIA QUERIES */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .certificate-heading {
+    font-size: 1.8rem;
+  }
+  .certificate-container {
+    gap: 1.5rem;
+  }
+  .certificate-item {
+    width: 300px;
+    height: 210px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .certificate-heading {
+    font-size: 1.5rem;
+  }
+  .certificate-item {
+    width: 260px;
+    height: 180px;
+  }
+  .certificate-item p {
+    font-size: 0.9rem;
+  }
+}
