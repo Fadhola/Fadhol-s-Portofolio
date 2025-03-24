@@ -1,16 +1,16 @@
 /* SECTION UTAMA */
 .services-section {
-  /* background-color: #1b1b1b; */
   color: #fff;
   padding: 2rem 1rem;
   text-align: center;
-  max-height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden; /* Menghilangkan scrollbar horizontal */
 }
 
 /* JUDUL & SUBJUDUL */
 .services-title,
-.skills-title {
+.skills-title,
+.skill-section-title {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   color: #36ba98;
@@ -24,27 +24,23 @@
 
 /* GRID CARD SERVICES */
 .services-grid {
-  display: grid;
-  gap: 1.5rem;
+  width: 100%;
   max-width: 1200px;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
   padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+  gap: 1rem; /* bisa ditambahkan gap untuk spasi antar kotak */
 }
 
-/* Tampilan mobile: 1 kolom */
-.services-grid {
-  grid-template-columns: 1fr;
-}
-
-/* Tampilan tablet dan desktop: 2 kolom */
 @media (min-width: 768px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
   }
 }
 
-/* Setiap card */
+/* SERVICE CARD */
 .service-card {
   background-color: #2a2a2a;
   border-radius: 8px;
@@ -52,98 +48,136 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
-
-/* Card full width (untuk card ketiga) */
 .full-width {
-  grid-column: span 1; /* Default untuk mobile */
+  grid-column: span 1;
 }
-
 @media (min-width: 768px) {
   .full-width {
     grid-column: span 2;
   }
 }
-
 .service-card-title {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
   color: #36ba98;
 }
-
 .service-card-desc {
   font-size: 0.9rem;
   line-height: 1.5;
   color: #ccc;
 }
 
-/* BAGIAN SKILLS (Slider Horizontal) */
-.skills-slider {
-  position: relative;
-  overflow: hidden;
-  padding-bottom: 1rem;
-  height: 120px;
+/* BAGIAN SKILL SECTION */
+.skill-section {
+  padding: 1rem;
+}
+.skill-section-title {
+  margin-bottom: 1rem;
 }
 
-.skills-track {
+/* Tombol kategori skill */
+.skill-buttons {
   display: flex;
-  gap: 1.5rem;
-  width: max-content;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.skill-buttons button {
+  background: #2f2f2f;
+  color: #fff;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.skill-buttons button:hover,
+.skill-buttons button.active {
+  background: #36ba98;
 }
 
-/* ITEM SKILL */
-.skill-item {
+/* Grid untuk SkillBox */
+.skills-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+
+/* SkillBox styling */
+.skill-box {
+  background-color: #2a2a2a;
+  border-radius: 4px;
+  padding: 0.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  width: 100%;
+  aspect-ratio: 1/1;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  flex: 0 0 auto;
+}
+.skill-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* LINGKARAN PROGRESS */
-.skill-circle-container {
+/* Skill square container dengan SVG progress indicator */
+.skill-square-container {
   position: relative;
   width: 80px;
   height: 80px;
+  margin-bottom: 0.5rem;
+}
+.skill-square-container svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* Logo dengan ukuran konsisten */
+.skill-logo {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
 }
 
-.skill-circle {
-  transform: rotate(-90deg);
+/* Skill info: persentase di atas nama */
+.skill-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
 }
-
-.circle-bg {
-  stroke: #333;
-  stroke-width: 10;
+.skill-progress-text {
+  font-size: 0.8rem;
+  color: #36ba98;
+  font-weight: bold;
 }
-
-.circle-progress {
-  stroke: #36ba98;
-  stroke-width: 10;
-  stroke-linecap: round;
-  transition: stroke-dashoffset 0.5s ease;
-}
-
 .skill-name {
-  margin-top: 0.5rem;
   font-size: 0.85rem;
   color: #ccc;
 }
 
-/* Responsive Adjustment untuk Skill Slider */
+/* RESPONSIVE untuk Skill Grid */
 @media (max-width: 480px) {
-  .skills-slider {
-    height: 100px;
+  .skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
   }
-
-  .skill-circle-container {
-    width: 60px;
-    height: 60px;
-  }
-
-  .skill-name {
-    font-size: 0.75rem;
+  .skill-buttons button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
   }
 }

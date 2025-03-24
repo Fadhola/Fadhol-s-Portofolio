@@ -92,6 +92,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  touch-action: none;
 }
 
 /* Bagian Hero (Left & Right) */
@@ -240,15 +241,27 @@
 
 /* Contact Link dan Button */
 .contactLink {
-  margin-bottom: 50px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  text-decoration: none;
 }
 
 .contactButton {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 20px;
-  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contactButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .circleText {

@@ -8,6 +8,29 @@ html {
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  scrollbar-width: thin; /* "auto", "thin", atau "none" */
+  scrollbar-color: #36ba98 #1b1b1b; /* thumb dan track */
+}
+
+/* Custom Scrollbar untuk browser berbasis WebKit */
+::-webkit-scrollbar {
+  width: 8px; /* Lebar scrollbar */
+  height: 8px; /* Tinggi scrollbar (untuk horizontal scroll) */
+}
+
+::-webkit-scrollbar-track {
+  background: #1b1b1b; /* Warna track, misalnya warna gelap sesuai tema */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #36ba98; /* Warna thumb sesuai tema */
+  border-radius: 4px;
+  border: 2px solid #1b1b1b; /* Memberi ruang agar thumb terlihat lebih rapih */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2ca083; /* Sedikit lebih gelap saat hover */
 }
 
 body {

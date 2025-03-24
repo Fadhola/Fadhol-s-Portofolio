@@ -1,5 +1,4 @@
-// Services.jsx
-import React, { useRef, useEffect } from 'react'
+import React, { useState } from 'react'
 import './services.css'
 
 /* Data Services (cards) */
@@ -23,85 +22,116 @@ const servicesData = [
 
 /* Data Skills */
 const frontEndSkills = [
-  { name: 'HTML', logo: '/html.png', value: 90 },
-  { name: 'CSS', logo: '/css.png', value: 85 },
-  { name: 'JavaScript', logo: '/js.png', value: 80 },
-  { name: 'React', logo: '/react.png', value: 75 },
+  { name: 'HTML', logo: '/html.jpg', value: 70 },
+  { name: 'CSS', logo: '/css.png', value: 70 },
+  { name: 'JavaScript', logo: '/js.png', value: 50 },
+  { name: 'React', logo: '/react.png', value: 20 },
 ]
 
 const backEndSkills = [
-  { name: 'Node.js', logo: '/node.png', value: 80 },
-  { name: 'Express', logo: '/express.png', value: 70 },
-  { name: 'MongoDB', logo: '/mongo.png', value: 75 },
-  { name: 'SQL', logo: '/sql.png', value: 65 },
+  { name: 'Node.js', logo: '/node.png', value: 50 },
+  { name: 'Express', logo: '/express.png', value: 20 },
+  { name: 'MongoDB', logo: '/mongodb.png', value: 20 },
 ]
 
 const dataSkills = [
-  { name: 'Python', logo: '/python.png', value: 85 },
-  { name: 'R', logo: '/r.png', value: 70 },
-  { name: 'Excel', logo: '/excel.png', value: 80 },
+  { name: 'Python', logo: '/py.png', value: 10 },
+  { name: 'SQL', logo: '/sql.jpg', value: 50 },
+  { name: 'Excel', logo: '/excel.jpg', value: 70 },
   { name: 'Tableau', logo: '/tableau.png', value: 60 },
 ]
 
-const allSkills = [...frontEndSkills, ...backEndSkills, ...dataSkills]
+// Gabungkan front-end dan back-end untuk kategori web
+const webSkills = [...frontEndSkills, ...backEndSkills]
+
+/* Komponen SkillBox: menampilkan logo di dalam square progress indicator dengan persentase di atas nama */
+const SkillBox = ({ logo, name, value }) => {
+  const side = 70
+  const perimeter = side * 4
+  const dashOffset = perimeter * (1 - value / 100)
+  return (
+    <div className="skill-box">
+      <div className="skill-square-container">
+        <svg width="80" height="80">
+          <rect
+            x="5"
+            y="5"
+            width={side}
+            height={side}
+            rx="5"
+            ry="5"
+            fill="none"
+            stroke="#444"
+            strokeWidth="4"
+          />
+          <rect
+            x="5"
+            y="5"
+            width={side}
+            height={side}
+            rx="5"
+            ry="5"
+            fill="none"
+            stroke="#36ba98"
+            strokeWidth="4"
+            strokeDasharray={perimeter}
+            strokeDashoffset={dashOffset}
+            style={{ transition: 'stroke-dashoffset 0.5s ease' }}
+          />
+        </svg>
+        <img src={logo} alt={name} className="skill-logo" />
+      </div>
+      <div className="skill-info">
+        <span className="skill-progress-text">{value}%</span>
+        <span className="skill-name">{name}</span>
+      </div>
+    </div>
+  )
+}
+
+/* Komponen SkillSection: tombol kategori dan grid skill */
+const SkillSection = ({
+  activeSkillCategory,
+  setActiveSkillCategory,
+  displayedSkills,
+}) => {
+  return (
+    <div className="skill-section">
+      <h2 className="skill-section-title">My Skills</h2>
+      <div className="skill-buttons">
+        <button
+          className={activeSkillCategory === 'web' ? 'active' : ''}
+          onClick={() => setActiveSkillCategory('web')}
+        >
+          Web Development
+        </button>
+        <button
+          className={activeSkillCategory === 'data' ? 'active' : ''}
+          onClick={() => setActiveSkillCategory('data')}
+        >
+          Data Analyst
+        </button>
+      </div>
+      <div className="skills-grid">
+        {displayedSkills.map((skill, idx) => (
+          <SkillBox
+            key={idx}
+            logo={skill.logo}
+            name={skill.name}
+            value={skill.value}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 const Services = () => {
-  const sliderRef = useRef(null)
-
-  useEffect(() => {
-    const slider = sliderRef.current
-    if (!slider) return
-
-    console.log('scrollWidth:', slider.scrollWidth)
-    console.log('clientWidth:', slider.clientWidth)
-
-    // Pastikan konten melebihi container
-    if (slider.scrollWidth <= slider.clientWidth) return
-
-    let isPaused = false
-    let reqId
-
-    const scrollStep = 2
-
-    const autoScroll = () => {
-      if (!isPaused) {
-        slider.scrollLeft += scrollStep
-        console.log('scrollLeft:', slider.scrollLeft)
-        if (slider.scrollLeft >= slider.scrollWidth / 2) {
-          slider.scrollLeft = 0
-          console.log('Reset scrollLeft ke 0')
-        }
-      }
-      reqId = requestAnimationFrame(autoScroll)
-    }
-    reqId = requestAnimationFrame(autoScroll)
-
-    // Event handlers untuk pause saat hover/touch
-    const pauseScroll = () => {
-      isPaused = true
-    }
-    const resumeScroll = () => {
-      isPaused = false
-    }
-
-    // Jika ingin menguji tanpa pause, event listener bisa dikomentari
-    slider.addEventListener('mouseenter', pauseScroll)
-    slider.addEventListener('mouseleave', resumeScroll)
-    slider.addEventListener('touchstart', pauseScroll)
-    slider.addEventListener('touchend', resumeScroll)
-
-    return () => {
-      cancelAnimationFrame(reqId)
-      slider.removeEventListener('mouseenter', pauseScroll)
-      slider.removeEventListener('mouseleave', resumeScroll)
-      slider.removeEventListener('touchstart', pauseScroll)
-      slider.removeEventListener('touchend', resumeScroll)
-    }
-  }, [])
+  const [activeSkillCategory, setActiveSkillCategory] = useState('web')
+  const displayedSkills = activeSkillCategory === 'web' ? webSkills : dataSkills
 
   return (
     <section className="services-section">
-      {/* BAGIAN SERVICES (Cards) */}
       <h1 className="services-title">My Services</h1>
       <p className="services-subtitle">
         Building sleek websites and analyzing data, one line of code at a time.
@@ -116,63 +146,16 @@ const Services = () => {
             <p className="service-card-desc">{service.description}</p>
           </div>
         ))}
-      </div>
-
-      {/* BAGIAN SKILLS */}
-      <h1 className="skills-title">My Skills</h1>
-      <div className="skills-slider" ref={sliderRef}>
-        <div className="skills-track">
-          {allSkills.concat(allSkills).map((skill, idx) => (
-            <div className="skill-item" key={idx}>
-              <SkillCircle logo={skill.logo} value={skill.value} />
-              <p className="skill-name">
-                {skill.name} - {skill.value}%
-              </p>
-            </div>
-          ))}
+        {/* Kartu full-width untuk SkillSection */}
+        <div className="service-card full-width">
+          <SkillSection
+            activeSkillCategory={activeSkillCategory}
+            setActiveSkillCategory={setActiveSkillCategory}
+            displayedSkills={displayedSkills}
+          />
         </div>
       </div>
     </section>
-  )
-}
-
-const SkillCircle = ({ logo, value }) => {
-  const radius = 30
-  const circumference = 2 * Math.PI * radius
-  const dashOffset = circumference - (value / 100) * circumference
-
-  return (
-    <div className="skill-circle-container">
-      <svg className="skill-circle" width="80" height="80" viewBox="0 0 80 80">
-        <circle
-          className="circle-bg"
-          cx="40"
-          cy="40"
-          r={radius}
-          strokeWidth="10"
-          fill="none"
-        />
-        <circle
-          className="circle-progress"
-          cx="40"
-          cy="40"
-          r={radius}
-          strokeWidth="10"
-          fill="none"
-          strokeDasharray={circumference}
-          strokeDashoffset={dashOffset}
-        />
-        <image
-          href={logo}
-          x="40"
-          y="40"
-          height="20"
-          width="20"
-          transform="translate(-10, -10)"
-          style={{ pointerEvents: 'none' }}
-        />
-      </svg>
-    </div>
   )
 }
 

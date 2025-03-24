@@ -8,20 +8,20 @@ import Nav from './components/hero/Nav'
 const App = () => {
   return (
     <div className="container">
-      <section id="#home">
+      <section id="home">
         {/* <Nav /> */}
         <Hero />
       </section>
-      <section id="#services">
+      <section id="services">
         <Services />
       </section>
-      <section id="#portfolio">
+      <section id="portfolio">
         <Portfolio />
       </section>
-      <section id="#certificate">
+      <section id="certificate">
         <Certificate />
       </section>
-      <section id="#contact">
+      <section id="contact">
         <Contact />
       </section>
     </div>

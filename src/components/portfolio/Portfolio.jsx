@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { AiOutlineClose, AiFillGithub } from 'react-icons/ai'
+import { BiLinkExternal } from 'react-icons/bi'
 import './portfolio.css'
 
 const portfolioData = [
@@ -93,7 +95,7 @@ const Portfolio = () => {
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <span className="modal-close" onClick={closeModal}>
-              &times;
+              <AiOutlineClose />
             </span>
             <div className="modal-slider">
               <img
@@ -118,14 +120,14 @@ const Portfolio = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GitHub
+                <AiFillGithub /> GitHub
               </a>
               <a
                 href={selectedItem.liveLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Live Preview
+                <BiLinkExternal /> Live Preview
               </a>
             </div>
           </div>
