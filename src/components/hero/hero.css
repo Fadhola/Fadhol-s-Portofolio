@@ -92,7 +92,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  touch-action: none;
+  touch-action: pan-y;
 }
 
 /* Bagian Hero (Left & Right) */
