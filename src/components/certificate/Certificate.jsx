@@ -48,7 +48,10 @@ const Certificate = () => {
 
       {selectedCertificate && (
         <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="modal-certi-content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <span className="modal-close" onClick={closeModal}>
               &times;
             </span>

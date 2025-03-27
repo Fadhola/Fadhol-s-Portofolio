@@ -103,7 +103,7 @@
   z-index: 999;
 }
 
-.modal-content {
+.modal-certi-content {
   background-color: #2a2a2a;
   padding: 2rem;
   border-radius: 8px;
@@ -122,7 +122,7 @@
   color: #fff;
 }
 
-.modal-content img {
+.modal-certi-content img {
   width: 100%;
   height: auto;
   margin-bottom: 1rem;
@@ -130,7 +130,7 @@
   object-fit: cover;
 }
 
-.modal-content h2 {
+.modal-certi-content h2 {
   color: #36ba98;
   margin-bottom: 1rem;
 }

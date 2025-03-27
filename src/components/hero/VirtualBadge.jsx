@@ -22,8 +22,8 @@ import { MeshLineGeometry, MeshLineMaterial } from 'meshline'
 import { useControls } from 'leva'
 
 extend({ MeshLineGeometry, MeshLineMaterial })
-useGLTF.preload('Scene.glb')
-useTexture.preload('/Group 3.png')
+useGLTF.preload('Scene (1).glb')
+useTexture.preload('/Group 3 (1).png')
 
 export default function VirtualBadge() {
   useEffect(() => {
@@ -92,8 +92,8 @@ function Band({ maxSpeed = 50, minSpeed = 10 }) {
     angularDamping: 2,
     linearDamping: 2,
   }
-  const { nodes, materials } = useGLTF('Scene.glb')
-  const texture = useTexture('/Group 3.png')
+  const { nodes, materials } = useGLTF('Scene (1).glb')
+  const texture = useTexture('/Group 3 (1).png')
   const { width, height } = useThree((state) => state.size)
   const [curve] = useState(
     () =>

@@ -6,7 +6,7 @@ const servicesData = [
   {
     title: 'Front-end Development',
     description:
-      'Membangun tampilan website yang interaktif dan responsif menggunakan teknologi modern seperti React, Vue, dan lainnya.',
+      'Membangun tampilan website yang interaktif dan responsif menggunakan teknologi modern seperti HTML, CSS dan Javascript.',
   },
   {
     title: 'Back-end Development',
@@ -37,7 +37,7 @@ const backEndSkills = [
 const dataSkills = [
   { name: 'Python', logo: '/py.png', value: 10 },
   { name: 'SQL', logo: '/sql.jpg', value: 50 },
-  { name: 'Excel', logo: '/excel.jpg', value: 70 },
+  { name: 'Excel', logo: '/excel.jpg', value: 50 },
   { name: 'Tableau', logo: '/tableau.png', value: 60 },
 ]
 

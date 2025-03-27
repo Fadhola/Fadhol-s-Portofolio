@@ -16,6 +16,11 @@ const portfolioData = [
     description: 'Penjelasan singkat tentang Data Analysis Project 1...',
     githubLink: 'https://github.com/username/project1',
     liveLink: 'https://example.com/project1',
+    technologies: [
+      { name: 'Python', logo: '/python.png' },
+      { name: 'Pandas', logo: '/pandas.png' },
+      // dsb.
+    ],
   },
   {
     id: 2,
@@ -24,7 +29,15 @@ const portfolioData = [
     images: ['/web1.png', '/web1.1.png'],
     description: 'Penjelasan singkat tentang Web Dev Project 1...',
     githubLink: 'https://github.com/username/project2',
-    liveLink: 'https://example.com/project2',
+    liveLink: null,
+    technologies: [
+      { name: 'HTML', logo: '/html.jpg' },
+      { name: 'CSS', logo: '/css.png' },
+      { name: 'Node.js', logo: '/node.png' },
+      { name: 'Express', logo: '/express.png' },
+      { name: 'Mongodb', logo: '/mongodb.png' },
+      // dsb.
+    ],
   },
   // ... data lain
 ]
@@ -86,6 +99,19 @@ const Portfolio = () => {
           >
             <img src={item.images[0]} alt={item.title} />
             <h3>{item.title}</h3>
+            {item.technologies && item.technologies.length > 0 && (
+              <div className="tech-row">
+                {item.technologies.map((tech, idx) => (
+                  <img
+                    key={idx}
+                    src={tech.logo}
+                    alt={tech.name}
+                    title={tech.name}
+                    className="tech-logo-small"
+                  />
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -114,6 +140,23 @@ const Portfolio = () => {
             </div>
             <h2>{selectedItem.title}</h2>
             <p>{selectedItem.description}</p>
+            {selectedItem.technologies &&
+              selectedItem.technologies.length > 0 && (
+                <div className="modal-tech">
+                  <h3>Technologies Used</h3>
+                  <div className="tech-logos">
+                    {selectedItem.technologies.map((tech, idx) => (
+                      <img
+                        key={idx}
+                        src={tech.logo}
+                        alt={tech.name}
+                        title={tech.name}
+                        className="tech-logo"
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
             <div className="modal-links">
               <a
                 href={selectedItem.githubLink}
@@ -122,13 +165,19 @@ const Portfolio = () => {
               >
                 <AiFillGithub /> GitHub
               </a>
-              <a
-                href={selectedItem.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <BiLinkExternal /> Live Preview
-              </a>
+              {selectedItem.liveLink ? (
+                <a
+                  href={selectedItem.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <BiLinkExternal /> Live Preview
+                </a>
+              ) : (
+                <button className="disabled-live" disabled>
+                  <BiLinkExternal /> Live Preview
+                </button>
+              )}
             </div>
           </div>
         </div>

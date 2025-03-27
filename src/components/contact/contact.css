@@ -3,6 +3,8 @@
   /* background: #1b1b1b; */
   color: #fff;
   padding: 3rem 1rem;
+  padding-bottom: 2rem;
+  overflow-y: auto;
   min-height: 100vh;
   text-align: center;
   position: relative;
@@ -29,6 +31,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 /* FORM CONTACT */
