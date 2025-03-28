@@ -1,21 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, Suspense, lazy, useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import './certificate.css'
+
+// Lazy load komponen modal sertifikat
+const CertificateModal = lazy(() => import('./CertificateModal'))
 
 const certificates = [
   {
     id: 1,
     title: 'Certificate 1',
-    image: '/certiRevou.jpg',
+    image: '/certificates/certiRevou.jpg',
   },
   {
     id: 2,
     title: 'Certificate 2',
-    image: '/certiDicoding.jpg',
+    image: '/certificates/certiDicoding.jpg',
   },
   {
     id: 3,
     title: 'Certificate 3',
-    image: '/certiMsib6.jpg',
+    image: '/certificates/certiMsib6.jpg',
   },
 ]
 
@@ -30,38 +35,37 @@ const Certificate = () => {
     setSelectedCertificate(null)
   }
 
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true })
+  }, [])
+
   return (
     <section className="certificate-hero">
-      <h1 className="certificate-heading">My Collections of Certificates</h1>
+      <h1 className="certificate-heading" data-aos="fade-down">
+        My Collections of Certificates
+      </h1>
       <div className="certificate-container">
         {certificates.map((cert, index) => (
           <div
             className={`certificate-item card-${index + 1}`}
             key={cert.id}
             onClick={() => openModal(cert)}
+            data-aos="fade"
+            data-aos-delay={index * 100}
           >
-            <img src={cert.image} alt={cert.title} />
+            <img src={cert.image} alt={cert.title} loading="lazy" />
             <p>{cert.title}</p>
           </div>
         ))}
       </div>
 
       {selectedCertificate && (
-        <div className="modal-overlay" onClick={closeModal}>
-          <div
-            className="modal-certi-content"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <span className="modal-close" onClick={closeModal}>
-              &times;
-            </span>
-            <img
-              src={selectedCertificate.image}
-              alt={selectedCertificate.title}
-            />
-            <h2>{selectedCertificate.title}</h2>
-          </div>
-        </div>
+        <Suspense fallback={<div>Loading modal...</div>}>
+          <CertificateModal
+            certificate={selectedCertificate}
+            closeModal={closeModal}
+          />
+        </Suspense>
       )}
     </section>
   )

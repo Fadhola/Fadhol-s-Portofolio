@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, Suspense, lazy, useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import './services.css'
 
 /* Data Services (cards) */
@@ -22,118 +24,55 @@ const servicesData = [
 
 /* Data Skills */
 const frontEndSkills = [
-  { name: 'HTML', logo: '/html.jpg', value: 70 },
-  { name: 'CSS', logo: '/css.png', value: 70 },
-  { name: 'JavaScript', logo: '/js.png', value: 50 },
-  { name: 'React', logo: '/react.png', value: 20 },
+  { name: 'HTML', logo: '/skills/html.jpg', value: 70 },
+  { name: 'CSS', logo: '/skills/css.png', value: 70 },
+  { name: 'JavaScript', logo: '/skills/js.png', value: 50 },
+  { name: 'React', logo: '/skills/react.png', value: 20 },
 ]
 
 const backEndSkills = [
-  { name: 'Node.js', logo: '/node.png', value: 50 },
-  { name: 'Express', logo: '/express.png', value: 20 },
-  { name: 'MongoDB', logo: '/mongodb.png', value: 20 },
+  { name: 'Node.js', logo: '/skills/node.png', value: 50 },
+  { name: 'Express', logo: '/skills/express.png', value: 20 },
+  { name: 'MongoDB', logo: '/skills/mongodb.png', value: 20 },
 ]
 
 const dataSkills = [
-  { name: 'Python', logo: '/py.png', value: 10 },
-  { name: 'SQL', logo: '/sql.jpg', value: 50 },
-  { name: 'Excel', logo: '/excel.jpg', value: 50 },
-  { name: 'Tableau', logo: '/tableau.png', value: 60 },
+  { name: 'Python', logo: '/skills/py.png', value: 10 },
+  { name: 'SQL', logo: '/skills/sql.jpg', value: 50 },
+  { name: 'Excel', logo: '/skills/excel.jpg', value: 50 },
+  { name: 'Tableau', logo: '/skills/tableau.webp', value: 60 },
 ]
 
 // Gabungkan front-end dan back-end untuk kategori web
 const webSkills = [...frontEndSkills, ...backEndSkills]
 
-/* Komponen SkillBox: menampilkan logo di dalam square progress indicator dengan persentase di atas nama */
-const SkillBox = ({ logo, name, value }) => {
-  const side = 70
-  const perimeter = side * 4
-  const dashOffset = perimeter * (1 - value / 100)
-  return (
-    <div className="skill-box">
-      <div className="skill-square-container">
-        <svg width="80" height="80">
-          <rect
-            x="5"
-            y="5"
-            width={side}
-            height={side}
-            rx="5"
-            ry="5"
-            fill="none"
-            stroke="#444"
-            strokeWidth="4"
-          />
-          <rect
-            x="5"
-            y="5"
-            width={side}
-            height={side}
-            rx="5"
-            ry="5"
-            fill="none"
-            stroke="#36ba98"
-            strokeWidth="4"
-            strokeDasharray={perimeter}
-            strokeDashoffset={dashOffset}
-            style={{ transition: 'stroke-dashoffset 0.5s ease' }}
-          />
-        </svg>
-        <img src={logo} alt={name} className="skill-logo" />
-      </div>
-      <div className="skill-info">
-        <span className="skill-progress-text">{value}%</span>
-        <span className="skill-name">{name}</span>
-      </div>
-    </div>
-  )
-}
-
-/* Komponen SkillSection: tombol kategori dan grid skill */
-const SkillSection = ({
-  activeSkillCategory,
-  setActiveSkillCategory,
-  displayedSkills,
-}) => {
-  return (
-    <div className="skill-section">
-      <h2 className="skill-section-title">My Skills</h2>
-      <div className="skill-buttons">
-        <button
-          className={activeSkillCategory === 'web' ? 'active' : ''}
-          onClick={() => setActiveSkillCategory('web')}
-        >
-          Web Development
-        </button>
-        <button
-          className={activeSkillCategory === 'data' ? 'active' : ''}
-          onClick={() => setActiveSkillCategory('data')}
-        >
-          Data Analyst
-        </button>
-      </div>
-      <div className="skills-grid">
-        {displayedSkills.map((skill, idx) => (
-          <SkillBox
-            key={idx}
-            logo={skill.logo}
-            name={skill.name}
-            value={skill.value}
-          />
-        ))}
-      </div>
-    </div>
-  )
-}
+// Lazy load komponen SkillSection
+const LazySkillSection = lazy(() => import('./SkillSection'))
 
 const Services = () => {
-  const [activeSkillCategory, setActiveSkillCategory] = useState('web')
-  const displayedSkills = activeSkillCategory === 'web' ? webSkills : dataSkills
+  const [activeSkillCategory, setActiveSkillCategory] = useState('all')
+
+  // Jika "all" dipilih, gabungkan semua skill, selain itu pilih sesuai kategori
+  const displayedSkills =
+    activeSkillCategory === 'all'
+      ? [...webSkills, ...dataSkills]
+      : activeSkillCategory === 'web'
+      ? webSkills
+      : dataSkills
+
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true })
+    const handleResize = () => AOS.refresh()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   return (
     <section className="services-section">
-      <h1 className="services-title">My Services</h1>
-      <p className="services-subtitle">
+      <h1 className="services-title" data-aos="fade-down">
+        My Services
+      </h1>
+      <p className="services-subtitle" data-aos="fade-up">
         Building sleek websites and analyzing data, one line of code at a time.
       </p>
       <div className="services-grid">
@@ -141,18 +80,21 @@ const Services = () => {
           <div
             className={`service-card ${index === 2 ? 'full-width' : ''}`}
             key={index}
+            data-aos="zoom-in"
           >
             <h2 className="service-card-title">{service.title}</h2>
             <p className="service-card-desc">{service.description}</p>
           </div>
         ))}
-        {/* Kartu full-width untuk SkillSection */}
-        <div className="service-card full-width">
-          <SkillSection
-            activeSkillCategory={activeSkillCategory}
-            setActiveSkillCategory={setActiveSkillCategory}
-            displayedSkills={displayedSkills}
-          />
+        {/* Kartu full-width untuk menampilkan SkillSection yang di‑lazy load */}
+        <div className="service-card full-width" data-aos="fade-up">
+          <Suspense fallback={<div>Loading Skills...</div>}>
+            <LazySkillSection
+              activeSkillCategory={activeSkillCategory}
+              setActiveSkillCategory={setActiveSkillCategory}
+              displayedSkills={displayedSkills}
+            />
+          </Suspense>
         </div>
       </div>
     </section>

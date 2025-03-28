@@ -1,6 +1,8 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import { FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import './contact.css'
 
 const Contact = () => {
@@ -12,10 +14,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        'service_wh6v2rk', //service ID
-        'template_mcsqai9', //template ID
+        'service_wh6v2rk', // service ID
+        'template_mcsqai9', // template ID
         form.current,
-        'ksSlBWF_lIudd3SFX' //public key
+        'ksSlBWF_lIudd3SFX' // public key
       )
       .then(
         (result) => {
@@ -38,16 +40,25 @@ const Contact = () => {
       )
   }
 
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true })
+  }, [])
+
   return (
-    <section className="contact">
-      <h1 className="contact-title">Get In Touch</h1>
-      <p className="contact-subtitle">
+    <section className="contact" data-aos="fade-up">
+      <h1 className="contact-title" data-aos="fade-down">
+        Get In Touch
+      </h1>
+      <p className="contact-subtitle" data-aos="fade-up" data-aos-delay="200">
         Feel free to drop a message if you have any questions or just want to
         say hi!
       </p>
-      <div className="contact-container">
+      <div
+        className="contact-container"
+        data-aos="fade-up"
+        data-aos-delay="400"
+      >
         <form ref={form} onSubmit={sendEmail} className="contact-form">
-          {/* Input hidden untuk contact_number sebagai dynamic variable */}
           <input
             type="hidden"
             name="contact_number"
@@ -87,7 +98,7 @@ const Contact = () => {
             Send Message
           </button>
         </form>
-        <div className="contact-info">
+        <div className="contact-info" data-aos="fade-up" data-aos-delay="600">
           <h2>Contact Info</h2>
           <p>
             Email:{' '}
@@ -112,6 +123,7 @@ const Contact = () => {
             >
               <FaLinkedin size={24} />
             </a>
+            {/* Uncomment jika ingin menggunakan Twitter */}
             {/* <a
               href="https://twitter.com/yourusername"
               target="_blank"
@@ -123,7 +135,10 @@ const Contact = () => {
         </div>
       </div>
       {resultMessage && (
-        <div className={`result-message ${resultMessage.type}`}>
+        <div
+          className={`result-message ${resultMessage.type}`}
+          data-aos="fade-up"
+        >
           {resultMessage.text}
         </div>
       )}

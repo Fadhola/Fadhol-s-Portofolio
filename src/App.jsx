@@ -1,28 +1,39 @@
+import { Suspense, lazy } from 'react'
 import Hero from './components/hero/Hero'
-import Services from './components/services/Services'
-import Portfolio from './components/portfolio/Portfolio'
-import Contact from './components/contact/Contact'
-import Certificate from './components/certificate/Certificate'
-import Nav from './components/hero/Nav'
+
+// Lazy load semua komponen
+
+const Services = lazy(() => import('./components/services/Services'))
+const Portfolio = lazy(() => import('./components/portfolio/Portfolio'))
+const Certificate = lazy(() => import('./components/certificate/Certificate'))
+const Contact = lazy(() => import('./components/contact/Contact'))
+// const Nav = lazy(() => import('./components/hero/Nav')) // jika diperlukan
 
 const App = () => {
   return (
     <div className="container">
       <section id="home">
-        {/* <Nav /> */}
         <Hero />
       </section>
       <section id="services">
-        <Services />
+        <Suspense fallback={<div>Loading Services...</div>}>
+          <Services />
+        </Suspense>
       </section>
       <section id="portfolio">
-        <Portfolio />
+        <Suspense fallback={<div>Loading Portfolio...</div>}>
+          <Portfolio />
+        </Suspense>
       </section>
       <section id="certificate">
-        <Certificate />
+        <Suspense fallback={<div>Loading Certificates...</div>}>
+          <Certificate />
+        </Suspense>
       </section>
       <section id="contact">
-        <Contact />
+        <Suspense fallback={<div>Loading Contact...</div>}>
+          <Contact />
+        </Suspense>
       </section>
     </div>
   )

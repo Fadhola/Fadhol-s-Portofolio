@@ -1,12 +1,13 @@
-import React from 'react'
+import { Suspense, lazy } from 'react'
 import { Canvas } from '@react-three/fiber'
 import './hero.css'
-import Speech from './Speech'
 import { motion } from 'motion/react'
-import Shape from './Shape'
+import { FaPaperPlane } from 'react-icons/fa'
+
+// Lazy load komponen yang tidak krusial untuk tampilan awal
+const Speech = lazy(() => import('./Speech'))
+const Shape = lazy(() => import('./Shape'))
 import VirtualBadge from './VirtualBadge'
-import { Suspense } from 'react'
-import { FaPaperPlane } from 'react-icons/fa' // Import ikon paper plane
 
 const awardVariants = {
   initial: { x: -100, opacity: 0 },
@@ -45,7 +46,6 @@ const Hero = () => {
           href="#services"
           className="scroll"
         >
-          {/* Contoh tombol scroll yang ada, biarkan jika masih diperlukan */}
           <svg
             width="50px"
             height="50px"
@@ -82,7 +82,9 @@ const Hero = () => {
         </motion.a>
       </div>
       <div className="hSection right">
-        <Speech />
+        <Suspense fallback="loading...">
+          <Speech />
+        </Suspense>
         <motion.a
           href="#contact"
           className="contactLink"
@@ -90,7 +92,6 @@ const Hero = () => {
           transition={{ duration: 2 }}
         >
           <div className="contactButton">
-            {/* Ganti SVG lama dengan React Icon untuk paper plane */}
             <FaPaperPlane size={60} color="#36BA98" />
           </div>
         </motion.a>
@@ -103,6 +104,7 @@ const Hero = () => {
         </Canvas>
       </div>
       <div className="hImg">
+        {/* VirtualBadge langsung diimpor tanpa Suspense lazy loading */}
         <VirtualBadge />
       </div>
     </div>
