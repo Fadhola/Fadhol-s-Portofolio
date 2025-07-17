@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
-import { FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaInstagram, FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import './contact.css'
@@ -123,14 +123,13 @@ const Contact = () => {
             >
               <FaLinkedin size={24} />
             </a>
-            {/* Uncomment jika ingin menggunakan Twitter */}
-            {/* <a
-              href="https://twitter.com/yourusername"
+            <a
+              href="https://github.com/Fadhola"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaTwitter size={24} />
-            </a> */}
+              <FaGithub size={24} />
+            </a>
           </div>
         </div>
       </div>

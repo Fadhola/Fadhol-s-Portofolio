@@ -1,5 +1,5 @@
-import { TypeAnimation } from 'react-type-animation'
-import { motion } from 'motion/react'
+import { TypeAnimation } from "react-type-animation";
+import { motion } from "motion/react";
 
 const Speech = () => {
   return (
@@ -12,13 +12,15 @@ const Speech = () => {
         <TypeAnimation
           sequence={[
             1000,
-            'Building sleek websites, one line of code at a time.',
+            "Turning data into decisions.",
             1000,
-            'Learning to make the web a prettier place.',
+            "Scientist at heart, web dev by training.",
             1000,
-            'Frontend enthusiast on a mission!',
+            "Analyzing patterns, building solutions.",
             1000,
-            'Still learning, always improving.',
+            "Frontend? Backend? Been there.",
+            1000,
+            "Still learning, always improving.",
             1000,
           ]}
           wrapper="span"
@@ -29,7 +31,7 @@ const Speech = () => {
       </div>
       {/* <img src="/grobot.png" alt="" /> */}
     </motion.div>
-  )
-}
+  );
+};
 
-export default Speech
+export default Speech;

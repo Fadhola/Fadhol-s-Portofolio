@@ -1,13 +1,13 @@
 import { Suspense, lazy } from 'react'
 import Hero from './components/hero/Hero'
 
-// Lazy load semua komponen
+
 
 const Services = lazy(() => import('./components/services/Services'))
 const Portfolio = lazy(() => import('./components/portfolio/Portfolio'))
 const Certificate = lazy(() => import('./components/certificate/Certificate'))
 const Contact = lazy(() => import('./components/contact/Contact'))
-// const Nav = lazy(() => import('./components/hero/Nav')) // jika diperlukan
+
 
 const App = () => {
   return (
