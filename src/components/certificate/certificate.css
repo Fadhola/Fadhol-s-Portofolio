@@ -107,11 +107,11 @@
 
 .modal-certi-content {
   background-color: #2a2a2a;
-  height: 98%;
+  height: 90%;
   padding: 2rem;
   border-radius: 8px;
   /* max-width: 600px; */
-  width: 98%;
+  width: 90%;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -164,6 +164,7 @@
     height: auto;
     justify-content: center;
     align-items: center;
+    width: 98%;
   }
 }
 
