@@ -24,7 +24,7 @@ const certificates = [
   },
   {
     id: 4,
-    title: "Bootcamp Hacktiv8 Full-day Data Science",
+    title: "Bootcamp Hacktiv8 Full-Time Data Science",
     image: "/certificates/certiHacktiv8.png",
   },
 ];

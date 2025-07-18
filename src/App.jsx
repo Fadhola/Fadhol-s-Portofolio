@@ -1,19 +1,22 @@
-import { Suspense, lazy } from 'react'
-import Hero from './components/hero/Hero'
+import { Suspense, lazy } from "react";
+import Hero from "./components/hero/Hero";
 
-
-
-const Services = lazy(() => import('./components/services/Services'))
-const Portfolio = lazy(() => import('./components/portfolio/Portfolio'))
-const Certificate = lazy(() => import('./components/certificate/Certificate'))
-const Contact = lazy(() => import('./components/contact/Contact'))
-
+const About = lazy(() => import("./components/about/About"));
+const Services = lazy(() => import("./components/services/Services"));
+const Portfolio = lazy(() => import("./components/portfolio/Portfolio"));
+const Certificate = lazy(() => import("./components/certificate/Certificate"));
+const Contact = lazy(() => import("./components/contact/Contact"));
 
 const App = () => {
   return (
     <div className="container">
       <section id="home">
         <Hero />
+      </section>
+      <section id="about">
+        <Suspense fallback={<div>Loading About...</div>}>
+          <About />
+        </Suspense>
       </section>
       <section id="services">
         <Suspense fallback={<div>Loading Services...</div>}>
@@ -36,7 +39,7 @@ const App = () => {
         </Suspense>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

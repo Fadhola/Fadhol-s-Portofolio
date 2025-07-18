@@ -1,0 +1,242 @@
+/* === Container & Layout === */
+.about-section {
+  height: 100vh;
+  overflow: hidden;
+  /* scrollbar-gutter: stable; */
+}
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .about-container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-container {
+    padding: 0 3rem;
+  }
+}
+
+/* === Section Title === */
+.about-title {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #36ba98;
+  margin-bottom: 2rem;
+}
+
+/* === About Content Layout === */
+.about-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .about-content {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* === Left Side (Intro) === */
+.about-left {
+  flex: 1.2;
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* === Right Side (Timeline) === */
+.about-right {
+  max-height: 100vh;
+  overflow-x: hidden;
+  flex: 1;
+  position: relative;
+  padding: 2rem 0;
+}
+
+/* === Timeline Vertical Line with Animation === */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #36ba98, transparent);
+  animation: draw-line 2s ease-in-out forwards;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+@keyframes draw-line {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: 100%;
+    opacity: 0.5;
+  }
+}
+
+/* === Timeline Items Container === */
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* <== dikurangi dari 2.5rem */
+  padding: 0 1rem; /* <== ditambah padding agar ada ruang */
+  overflow: hidden;
+  margin-bottom: 70px;
+}
+
+/* === Individual Timeline Item === */
+.timeline-item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/* === Timeline Dot/Icon === */
+.timeline-icon {
+  background-color: #1a1a1a;
+  border: 2px solid #36ba98;
+  color: #36ba98;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  transition: box-shadow 0.3s ease;
+}
+
+.timeline-icon:hover {
+  box-shadow: 0 0 10px #36ba98aa;
+}
+
+/* === Timeline Content Box === */
+.timeline-content {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid #36ba98;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  max-width: 80%;
+  z-index: 1;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  box-shadow: 0 0 15px #36ba9877;
+  transform: scale(1.02);
+}
+
+.timeline-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.timeline-content li::before {
+  content: "▹";
+  color: #36ba98;
+  margin-right: 0.5rem;
+}
+
+.timeline-content ul {
+  /* list-style-type: disc; */
+  padding-left: 1.5rem;
+  margin-top: 0.5rem;
+  color: #aaa;
+  /* font-size: 0.9rem; */
+  line-height: 1.5;
+}
+
+.timeline-content li {
+  margin-bottom: 0.5rem;
+}
+
+.timeline-item .timeline-content {
+  margin-left: 2.5rem;
+  margin-right: auto;
+  transform: none;
+  text-align: left;
+}
+
+/* === Timeline Text Style === */
+.timeline-content h4 {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-content p {
+  color: #aaa;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* === Mobile Responsive Fix === */
+@media (max-width: 768px) {
+  .about-left {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+  .about-right {
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+
+  .timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* <== dikurangi dari 2.5rem */
+    padding: 0 1rem; /* <== ditambah padding agar ada ruang */
+    overflow-x: hidden;
+  }
+
+  .timeline-line {
+    left: 10px;
+  }
+
+  .timeline-icon {
+    transform: none;
+  }
+
+  .timeline-item .timeline-content {
+    max-width: 100%;
+    transform: none;
+    text-align: left;
+    transition: transform 0.5s ease;
+  }
+}
+
+@media (max-width: 376px) {
+  .about-left {
+    font-size: small;
+  }
+  .timeline-content {
+    margin-bottom: 10px;
+  }
+  .about-right {
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+}
