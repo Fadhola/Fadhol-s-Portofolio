@@ -154,6 +154,11 @@
     width: 300px;
     height: 210px;
   }
+  .modal-certi-content {
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /* Mobile */
