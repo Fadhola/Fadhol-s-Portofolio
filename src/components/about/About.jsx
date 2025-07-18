@@ -80,8 +80,8 @@ const About = () => {
                 <div
                   key={index}
                   className="timeline-item"
-                  data-aos="fade-up"
-                  data-aos-delay={300 + index * 100}
+                  //   data-aos="fade-up"
+                  //   data-aos-delay={0}
                 >
                   <div className="timeline-icon">{item.icon}</div>
                   <div className="timeline-content">
