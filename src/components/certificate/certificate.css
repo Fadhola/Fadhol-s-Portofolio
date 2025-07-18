@@ -6,7 +6,7 @@
   text-align: center;
   padding: 3rem 1rem;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* JUDUL */
@@ -53,6 +53,7 @@
   object-fit: cover;
   border-radius: 8px;
   z-index: 0;
+  overflow-x: hidden;
 }
 
 /* Judul di bagian bawah kartu dengan overlay */
@@ -101,16 +102,19 @@
   align-items: center;
   justify-content: center;
   z-index: 999;
+  /* overflow-x: hidden; */
 }
 
 .modal-certi-content {
   background-color: #2a2a2a;
+  height: 100%;
   padding: 2rem;
   border-radius: 8px;
   max-width: 600px;
   width: 90%;
   text-align: center;
   position: relative;
+  overflow-x: hidden;
 }
 
 .modal-close {
@@ -128,6 +132,7 @@
   margin-bottom: 1rem;
   border-radius: 8px;
   object-fit: cover;
+  /* overflow-x: hidden; */
 }
 
 .modal-certi-content h2 {

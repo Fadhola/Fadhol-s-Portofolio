@@ -1,43 +1,48 @@
-import React, { useState, Suspense, lazy, useEffect } from 'react'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-import './certificate.css'
+import React, { useState, Suspense, lazy, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import "./certificate.css";
 
 // Lazy load komponen modal sertifikat
-const CertificateModal = lazy(() => import('./CertificateModal'))
+const CertificateModal = lazy(() => import("./CertificateModal"));
 
 const certificates = [
   {
     id: 1,
-    title: 'Certificate 1',
-    image: '/certificates/certiRevou.jpg',
+    title: "Learn Data Analytics & Software Development with AI(MSIB 6)",
+    image: "/certificates/certiRevou.jpg",
   },
   {
     id: 2,
-    title: 'Certificate 2',
-    image: '/certificates/certiDicoding.jpg',
+    title: "Front-end & Back-end(MSIB 5)",
+    image: "/certificates/certiDicoding.jpg",
   },
   {
     id: 3,
-    title: 'Certificate 3',
-    image: '/certificates/certiMsib6.jpg',
+    title: "Peserta Studi Independen Bersertifikat Angkatan 6",
+    image: "/certificates/certiMsib6.jpg",
   },
-]
+  {
+    id: 4,
+    title: "Certificate 3",
+    image: "/certificates/certiHacktiv8.png",
+  },
+];
 
 const Certificate = () => {
-  const [selectedCertificate, setSelectedCertificate] = useState(null)
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
 
   const openModal = (certificate) => {
-    setSelectedCertificate(certificate)
-  }
+    setSelectedCertificate(certificate);
+  };
 
   const closeModal = () => {
-    setSelectedCertificate(null)
-  }
+    setSelectedCertificate(null);
+  };
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true })
-  }, [])
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   return (
     <section className="certificate-hero">
@@ -68,7 +73,7 @@ const Certificate = () => {
         </Suspense>
       )}
     </section>
-  )
-}
+  );
+};
 
-export default Certificate
+export default Certificate;
