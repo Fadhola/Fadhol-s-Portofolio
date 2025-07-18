@@ -10,7 +10,7 @@ import {
 
 const About = () => {
   useEffect(() => {
-    AOS.refresh();
+    AOS.init({ duration: 1000, once: true });
   }, []);
 
   const timeline = [
