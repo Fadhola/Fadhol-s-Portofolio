@@ -37,7 +37,7 @@ const About = () => {
       year: "2025",
       icon: <FaUsers />,
       title: "Lulus Bootcamp Hacktiv8",
-      desc: "Full-Time Bootcamp Data Science & Analyst. Fokus pada Python, SQL, Machine Learning, data engineer dan analisis bisnis berbasis proyek.",
+      desc: "Full-Time Bootcamp Data Science & Analyst. Fokus pada Python, SQL, Machine Learning, data engineering dan analisis bisnis berbasis proyek.",
     },
   ];
 
