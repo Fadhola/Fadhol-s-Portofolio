@@ -50,13 +50,13 @@ const PortfolioModal = ({ selectedItem, closeModal }) => (
         slidesPerView={1}
         spaceBetween={20}
         loop={true}
-        navigation={true}
+        navigation={false}
         pagination={{ clickable: true }}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
+        // autoplay={{
+        //   delay: 2500,
+        //   disableOnInteraction: true,
+        //   pauseOnMouseEnter: true,
+        // }}
         className="modal-swiper"
       >
         {selectedItem.images.map((src, idx) => (
