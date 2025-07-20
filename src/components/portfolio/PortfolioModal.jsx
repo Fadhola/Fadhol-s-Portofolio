@@ -1,79 +1,120 @@
-import { AiOutlineClose, AiFillGithub } from 'react-icons/ai'
-import { BiLinkExternal } from 'react-icons/bi'
-import './portfolio.css'
+// PortfolioModal.jsx
+import { AiOutlineClose, AiFillGithub } from "react-icons/ai";
+import { BiLinkExternal } from "react-icons/bi";
 
-const PortfolioModal = ({
-  selectedItem,
-  closeModal,
-  currentImageIndex,
-  handleDotClick,
-}) => {
-  return (
-    <div className="modal-overlay" onClick={closeModal}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <span className="modal-close" onClick={closeModal}>
-          <AiOutlineClose />
-        </span>
-        <div className="modal-slider">
-          <img
-            src={selectedItem.images[currentImageIndex]}
-            alt={selectedItem.title}
-            loading="lazy" // Terapkan lazy loading pada gambar modal
-          />
-          <div className="dots">
-            {selectedItem.images.map((_, i) => (
-              <span
+// React‑wrapper Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  Navigation,
+  Pagination,
+  Autoplay,
+  Zoom,
+  A11y,
+  EffectFade,
+  EffectCoverflow,
+} from "swiper/modules";
+
+// CSS core + modul
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import "swiper/css/effect-coverflow";
+import "swiper/css/effect-flip";
+import "swiper/css/zoom";
+
+import "./portfolio.css";
+
+const PortfolioModal = ({ selectedItem, closeModal }) => (
+  <div className="modal-overlay" onClick={closeModal}>
+    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+      <span className="modal-close" onClick={closeModal}>
+        <AiOutlineClose />
+      </span>
+
+      <Swiper
+        // install modul‐modul yang dibutuhkan
+        modules={[
+          Navigation,
+          Pagination,
+          Zoom,
+          EffectCoverflow,
+          Autoplay,
+          A11y,
+          EffectFade,
+        ]}
+        effect="flip"
+        zoom={true}
+        grabCursor={true}
+        centeredSlides={true}
+        slidesPerView={1}
+        spaceBetween={20}
+        loop={true}
+        navigation={true}
+        pagination={{ clickable: true }}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        }}
+        className="modal-swiper"
+      >
+        {selectedItem.images.map((src, idx) => (
+          <SwiperSlide key={idx}>
+            <div className="swiper-zoom-container">
+              <img
+                src={src}
+                alt={`${selectedItem.title} slide ${idx + 1}`}
+                loading="lazy"
+              />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <h2>{selectedItem.title}</h2>
+      <span className="modal-date">
+        {new Date(selectedItem.date).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+        })}
+      </span>
+      <p>{selectedItem.description}</p>
+
+      {selectedItem.technologies?.length > 0 && (
+        <div className="modal-tech">
+          <h3>Technologies Used</h3>
+          <div className="tech-logos">
+            {selectedItem.technologies.map((tech, i) => (
+              <img
                 key={i}
-                className={`dot ${i === currentImageIndex ? 'active' : ''}`}
-                onClick={() => handleDotClick(i)}
+                src={tech.logo}
+                alt={tech.name}
+                title={tech.name}
+                className="tech-logo"
+                loading="lazy"
               />
             ))}
           </div>
         </div>
-        <h2>{selectedItem.title}</h2>
-        <p>{selectedItem.description}</p>
-        {selectedItem.technologies && selectedItem.technologies.length > 0 && (
-          <div className="modal-tech">
-            <h3>Technologies Used</h3>
-            <div className="tech-logos">
-              {selectedItem.technologies.map((tech, idx) => (
-                <img
-                  key={idx}
-                  src={tech.logo}
-                  alt={tech.name}
-                  title={tech.name}
-                  className="tech-logo"
-                  loading="lazy" // Lazy load logo teknologi
-                />
-              ))}
-            </div>
-          </div>
-        )}
-        <div className="modal-links">
-          <a
-            href={selectedItem.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <AiFillGithub /> GitHub
+      )}
+
+      <div className="modal-links">
+        <a href={selectedItem.githubLink} target="_blank" rel="noreferrer">
+          <AiFillGithub /> GitHub
+        </a>
+        {selectedItem.liveLink ? (
+          <a href={selectedItem.liveLink} target="_blank" rel="noreferrer">
+            <BiLinkExternal /> Live Preview
           </a>
-          {selectedItem.liveLink ? (
-            <a
-              href={selectedItem.liveLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <BiLinkExternal /> Live Preview
-            </a>
-          ) : (
-            <button className="disabled-live" disabled>
-              <BiLinkExternal /> Live Preview
-            </button>
-          )}
-        </div>
+        ) : (
+          <button className="disabled-live" disabled>
+            <BiLinkExternal /> Live Preview
+          </button>
+        )}
       </div>
     </div>
-  )
-}
+  </div>
+);
 
-export default PortfolioModal
+export default PortfolioModal;
