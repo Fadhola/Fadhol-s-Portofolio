@@ -24,20 +24,26 @@ const PortfolioModal = lazy(() => import("./PortfolioModal"));
 const portfolioData = [
   {
     id: 1,
-    title: "Data Analysis Project 1",
+    title: "Dashboard & Data Analysis – Capstone Project RevoU x MSIB",
     date: "2024-04",
-    category: "data-analyst",
+    category: ["data-analyst", "web-dev"],
     images: [
-      "/portfolio/data1.png",
-      "https://via.placeholder.com/400x300/36ba98/ffffff?text=DA+1B",
-      "https://via.placeholder.com/400x300/36ba98/ffffff?text=DA+1C",
+      "/portfolio/RevoU/1.png",
+      "/portfolio/RevoU/2.png",
+      "/portfolio/RevoU/3.png",
+      "/portfolio/RevoU/4.png",
     ],
-    description: "Penjelasan singkat tentang Data Analysis Project 1...",
-    githubLink: "https://github.com/username/project1",
-    liveLink: "https://example.com/project1",
+    description:
+      "Capstone Project dari program Studi Independen RevoU x MSIB Cycle 6, dikerjakan oleh tim beranggotakan 12 orang. Saya berperan sebagai Data Analyst sekaligus Front-End Developer. Pada tahap analisis, saya melakukan eksplorasi terhadap efektivitas strategi diskon superstore berdasarkan data historis (2014–2017). Selanjutnya, saya mengubah dashboard Looker Studio menjadi website dashboard statis menggunakan HTML, CSS, dan JavaScript.",
+    githubLink: "https://github.com/Fadhola/km-feb24-jakarta-16",
+    liveLink: "https://km-feb24-jakarta-16.vercel.app/",
     technologies: [
-      { name: "Excel", logo: "/skills/excel.jpg" },
-      { name: "LookerStudio", logo: "/skills/lookers.png" },
+      { name: "Google Sheets", logo: "/skills/excel.jpg" },
+      { name: "SQL", logo: "/skills/sql.jpg" },
+      { name: "Looker Studio", logo: "/skills/lookers.png" },
+      { name: "HTML", logo: "/skills/html.jpg" },
+      { name: "CSS", logo: "/skills/css.png" },
+      { name: "JavaScript", logo: "/skills/js.png" },
     ],
   },
   {
@@ -52,7 +58,7 @@ const portfolioData = [
     ],
     description:
       "An interactive dashboard built with Tableau to analyze and identify strategies for increasing Road Bike sales revenue in Canada (2014–2016).",
-    githubLink: "https://github.com/username/project2",
+    githubLink: "https://github.com/Fadhola/Road-Bikes-Revenue-Strategy",
     liveLink:
       "https://public.tableau.com/views/P0M1_fadhola_asandi_dashboard/Dashboard1",
     technologies: [
@@ -74,7 +80,7 @@ const portfolioData = [
     ],
     description:
       "A machine learning model predicting risk of death in heart failure patients using clinical features.",
-    githubLink: "https://github.com/username/heart-failure-risk",
+    githubLink: "https://github.com/Fadhola/Heart-Failure-Mortality-Prediction",
     liveLink:
       "https://huggingface.co/spaces/fadhol/hearth-failure-death-proba-prediction",
     technologies: [
@@ -87,7 +93,7 @@ const portfolioData = [
   },
   {
     id: 4,
-    title: "Shopping Behavior Analytics",
+    title: "End to End Pipeline for E-Commerce Shopping Behavior Analytics",
     date: "2025-06",
     category: "data-analyst",
     images: [
@@ -97,7 +103,8 @@ const portfolioData = [
     ],
     description:
       "Analyzed customer shopping behavior with Apache Airflow pipeline + Kibana dashboard for real-time insights.",
-    githubLink: "https://github.com/username/shopping-behavior-analytics",
+    githubLink:
+      "https://github.com/Fadhola/End-to-End-Pipeline-for-E-Commerce-Shopping-Behavior-Analytics",
     liveLink: "https://kibana.example.com/dashboard/shopping-behavior",
     technologies: [
       { name: "Python", logo: "/skills/py.png" },
@@ -113,12 +120,18 @@ const portfolioData = [
   },
   {
     id: 5,
-    title: "Skripsi non-Reguler",
+    title: "Dashboard Analisis Data Superstore",
     date: "2024-11",
     category: "web-dev",
-    images: ["/portfolio/web1.png", "/portfolio/web1.1.png"],
-    description: "Penjelasan singkat tentang Web Dev Project 1...",
-    githubLink: "https://github.com/username/project2",
+    images: [
+      "/portfolio/web1.png",
+      "/portfolio/web1.1.png",
+      "/portfolio/web1.2.png",
+    ],
+    description:
+      "Dashboard interaktif berbasis web untuk analisis visualisasi data Superstore menggunakan arsitektur full-stack (Vite + Express.js) dan database MongoDB. Menyediakan fitur autentikasi, manajemen dataset (unggah/edit/hapus), serta visualisasi data penjualan dan profit secara real-time.",
+    githubLink:
+      "https://github.com/Fadhola/Full-Stack-Dashboard-Analisis-Visualisasi-Data-Superstore",
     liveLink: null,
     technologies: [
       { name: "HTML", logo: "/skills/html.jpg" },
@@ -127,6 +140,58 @@ const portfolioData = [
       { name: "Node.js", logo: "/skills/node.png" },
       { name: "Express", logo: "/skills/express.png" },
       { name: "MongoDB", logo: "/skills/mongodb.png" },
+    ],
+  },
+  {
+    id: 6,
+    title: "MentalCare – Web Penanganan Kesehatan Mental",
+    date: "2023-11",
+    category: "web-dev",
+    images: [
+      "/portfolio/MentalCare/1.png",
+      "/portfolio/MentalCare/2.png",
+      "/portfolio/MentalCare/3.png",
+      "/portfolio/MentalCare/4.png",
+      "/portfolio/MentalCare/7.png",
+      "/portfolio/MentalCare/8.png",
+      "/portfolio/MentalCare/9.png",
+      "/portfolio/MentalCare/10.png",
+      "/portfolio/MentalCare/11.png",
+      "/portfolio/MentalCare/12.png",
+      "/portfolio/MentalCare/13.png",
+      "/portfolio/MentalCare/14.png",
+      "/portfolio/MentalCare/15.png",
+    ],
+    description:
+      "Capstone Project dari program Studi Independen Bersertifikat (SIB) Cycle 5 Dicoding. Saya berperan sebagai frontend developer bersama 1 rekan lainnya, mengimplementasikan desain UI/UX ke dalam kode menggunakan Bootstrap. Website ini bertujuan menyediakan informasi dan dukungan bagi penderita gangguan kesehatan mental. Backend dikembangkan dengan Laravel 10.",
+    githubLink: "https://github.com/anggistaop/MentalCare",
+    liveLink: null, // sebelumnya: https://mentalcare.biz.id (sudah tidak aktif)
+    technologies: [
+      { name: "HTML", logo: "/skills/html.jpg" },
+      { name: "CSS", logo: "/skills/css.png" },
+      { name: "JavaScript", logo: "/skills/js.png" },
+      { name: "Bootstrap", logo: "/skills/bootstrap.png" },
+      { name: "Laravel", logo: "/skills/laravel.png" },
+    ],
+  },
+  {
+    id: 7,
+    title: "Personal Portfolio Website",
+    date: "2025-04",
+    category: "web-dev",
+    images: ["/portfolio/portfolio.png"],
+    description:
+      "Website portfolio pribadi yang menampilkan berbagai proyek, sertifikat, dan informasi kontak. Dibangun menggunakan React dan Vite dengan integrasi Three.js untuk efek visual 3D, Swiper untuk carousel, dan AOS untuk animasi scroll.",
+    githubLink: "https://github.com/Fadhola/fadhols-portfoliov2",
+    liveLink: null,
+    technologies: [
+      { name: "React", logo: "/skills/react.png" },
+      { name: "Vite", logo: "/skills/vite.jpeg" },
+      { name: "Three.js", logo: "/skills/threejs.png" },
+      { name: "Swiper", logo: "/skills/swiper.png" },
+      { name: "AOS", logo: "/skills/aos.jpeg" },
+      { name: "JavaScript", logo: "/skills/js.png" },
+      { name: "CSS", logo: "/skills/css.png" },
     ],
   },
 ];
@@ -139,7 +204,11 @@ const Portfolio = () => {
   const filteredData =
     activeCategory === "all"
       ? portfolioData
-      : portfolioData.filter((p) => p.category === activeCategory);
+      : portfolioData.filter((p) =>
+          Array.isArray(p.category)
+            ? p.category.includes(activeCategory)
+            : p.category === activeCategory
+        );
 
   const sortedData = [...filteredData].sort(
     (a, b) => new Date(b.date) - new Date(a.date)
@@ -149,9 +218,9 @@ const Portfolio = () => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
-  useEffect(() => {
-    AOS.refresh();
-  }, [activeCategory]);
+  // useEffect(() => {
+  //   AOS.refresh();
+  // }, [activeCategory]);
 
   return (
     <section className="portfolio-hero">
@@ -167,13 +236,13 @@ const Portfolio = () => {
           { key: "all", label: "All" },
           { key: "data-analyst", label: "Data Analyst & Science" },
           { key: "web-dev", label: "Web Development" },
-        ].map(({ key, label }, i) => (
+        ].map(({ key, label }) => (
           <button
             key={key}
             className={activeCategory === key ? "active" : ""}
             onClick={() => setActiveCategory(key)}
-            data-aos="fade-up"
-            data-aos-delay={100 + i * 100}
+            // data-aos="fade-up"
+            // data-aos-delay={100 + i * 100}
           >
             {label}
           </button>
@@ -182,6 +251,7 @@ const Portfolio = () => {
 
       {/* Swiper Coverflow Carousel */}
       <Swiper
+        key={activeCategory}
         modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
         effect="coverflow"
         grabCursor={true}
