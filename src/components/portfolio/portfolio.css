@@ -397,6 +397,32 @@
 .tech-logo:hover {
   transform: scale(1.1);
 }
+.tech-logo-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.tech-logo-name {
+  position: absolute;
+  bottom: -24px; /* posisi teks di bawah logo */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.tech-logo-wrapper:hover .tech-logo-name {
+  opacity: 1;
+}
 
 /* Link GitHub & Live */
 .modal-links {

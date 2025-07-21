@@ -86,14 +86,15 @@ const PortfolioModal = ({ selectedItem, closeModal }) => (
           <h3>Technologies Used</h3>
           <div className="tech-logos">
             {selectedItem.technologies.map((tech, i) => (
-              <img
-                key={i}
-                src={tech.logo}
-                alt={tech.name}
-                title={tech.name}
-                className="tech-logo"
-                loading="lazy"
-              />
+              <div key={i} className="tech-logo-wrapper">
+                <img
+                  src={tech.logo}
+                  alt={tech.name}
+                  className="tech-logo"
+                  loading="lazy"
+                />
+                <div className="tech-logo-name">{tech.name}</div>
+              </div>
             ))}
           </div>
         </div>
