@@ -182,7 +182,7 @@ const portfolioData = [
     images: ["/portfolio/portfolio.png"],
     description:
       "Website portfolio pribadi yang menampilkan berbagai proyek, sertifikat, dan informasi kontak. Dibangun menggunakan React dan Vite dengan integrasi Three.js untuk efek visual 3D, Swiper untuk carousel, dan AOS untuk animasi scroll.",
-    githubLink: "https://github.com/Fadhola/fadhols-portfoliov2",
+    githubLink: "https://github.com/Fadhola/Fadhol-s-Portofolio",
     liveLink: null,
     technologies: [
       { name: "React", logo: "/skills/react.png" },
