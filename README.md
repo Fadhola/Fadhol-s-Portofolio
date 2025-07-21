@@ -48,6 +48,6 @@ src/
 
 ## Contact
 
-Feel free to reach out through the contact section of the site, or connect via [LinkedIn]("https://linkedin.com/in/fadhola-asandi-mardika-putra-a814b321b").
+Feel free to reach out through the contact section of the site, or connect via [LinkedIn](https://linkedin.com/in/fadhola-asandi-mardika-putra-a814b321b).
 
 ---
