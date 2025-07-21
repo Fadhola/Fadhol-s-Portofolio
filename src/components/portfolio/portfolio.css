@@ -72,6 +72,7 @@
 .portfolio-card {
   width: 100%;
   max-width: 350px;
+  height: 100%;
   background-color: #2f2f2f;
   border-radius: 8px;
   overflow: hidden;
@@ -80,13 +81,27 @@
 }
 .portfolio-card img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: auto;
+  /* aspect-ratio: 4 / 3; */
+  object-fit: contain;
 }
+
 .portfolio-card .card-content {
+  /* padding: 1rem; */
+  text-align: center;
+  padding: 12px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.card-content {
+  flex-grow: 1;
   padding: 1rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
 .portfolio-card h3 {
   color: #fff;
   margin: 0 0 0.5rem;
@@ -258,6 +273,8 @@
   width: 90%;
   text-align: center;
   position: relative;
+  overflow-x: hidden;
+  max-height: 100vh;
 }
 
 .modal-close {
@@ -313,17 +330,40 @@
 /* Logo di Kartu (Grid) */
 .tech-row {
   display: flex;
-  /* gap: 0.5rem; */
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  padding: 0;
+  max-width: 100% !important;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.tech-logo-small {
+  width: 32px !important;
+  height: 32px !important;
+  background-color: #fff;
+  object-fit: contain !important;
+  display: block !important;
+  flex-shrink: 0;
+}
+
+/* .tech-row {
+  display: flex;
+  gap: 0.5rem;
   justify-content: center;
   margin-top: 0.5rem;
 }
 .tech-logo-small {
-  width: 25px; /* Ukuran kecil */
+  width: 25px; 
   height: 25px;
   border-radius: 80px;
   object-fit: contain;
   transition: transform 0.2s;
-}
+} */
 .tech-logo-small:hover {
   transform: scale(1.1);
 }
@@ -349,8 +389,9 @@
 .tech-logo {
   width: 40px;
   height: 40px;
-  object-fit: contain; /* Agar proporsi logo tetap */
-  border-radius: 8px; /* Opsional jika mau sudut membulat */
+  background-color: white;
+  object-fit: contain;
+  border-radius: 8px;
   transition: transform 0.2s ease;
 }
 .tech-logo:hover {

@@ -184,15 +184,15 @@ const Portfolio = () => {
       <Swiper
         modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
         effect="coverflow"
-        grabCursor
-        centeredSlides
+        grabCursor={true}
+        centeredSlides={true}
         slidesPerView={3}
         loop={true}
         // speed={3000}
         coverflowEffect={{
-          rotate: 20,
+          rotate: 30,
           stretch: 0,
-          depth: 200,
+          depth: 100,
           modifier: 1,
           slideShadows: false,
         }}
@@ -200,16 +200,17 @@ const Portfolio = () => {
         navigation
         pagination={{ clickable: true }}
         autoplay={{
-          delay: 2500,
+          delay: 2000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
+        speed={800}
         className="portfolio-swiper"
-        breakpoints={{
-          640: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        }}
+        // breakpoints={{
+        //   640: { slidesPerView: 1 },
+        //   768: { slidesPerView: 2 },
+        //   1024: { slidesPerView: 3 },
+        // }}
       >
         {sortedData.map((item) => (
           <SwiperSlide
@@ -227,6 +228,17 @@ const Portfolio = () => {
                     month: "short",
                   })}
                 </span>
+                <div className="tech-row">
+                  {item.technologies.map((tech, i) => (
+                    <img
+                      key={i}
+                      src={tech.logo}
+                      alt={tech.name}
+                      title={tech.name}
+                      className="tech-logo-small"
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </SwiperSlide>
