@@ -198,7 +198,7 @@ const portfolioData = [
     id: 8,
     title: "Skin Type Classification using CNN",
     date: "2025-06",
-    category: "web-dev",
+    category: "data-analyst",
     images: ["/portfolio/skinpredict.png", "/portfolio/skineda.png"],
     description:
       "Developed a CNN model to classify facial skin types (oily, dry, normal) to assist skincare beginners in selecting suitable products. Improved validation accuracy using data augmentation, batch normalization, dropout, and learning rate scheduling. Deployed via Streamlit for real-time image-based prediction.",
@@ -218,7 +218,7 @@ const portfolioData = [
     id: 9,
     title: "BPJSChaBo (BPJS Chatbot with NLP & RAG Pipeline)",
     date: "2025-04",
-    category: "web-dev",
+    category: "data-analyst",
     images: ["/portfolio/chabo.png"],
     description:
       "Developed an AI-powered chatbot that provides real-time, accurate answers to BPJS-related questions by leveraging RAG (Retrieval-Augmented Generation) and NLP techniques. Collaborated in a team of 5 as the Data Engineer, responsible for collecting, cleaning, validating, and storing data from official BPJS sources. Designed an end-to-end data pipeline including MongoDB vector storage and deployed the app on Hugging Face using Streamlit.",
