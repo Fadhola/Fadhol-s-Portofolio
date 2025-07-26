@@ -29,6 +29,8 @@ const dataSkills = [
   { name: "Pandas", logo: "/skills/pandas.png", value: 70 },
   { name: "Scikit-learn", logo: "/skills/sklearn.png", value: 60 },
   { name: "TensorFlow", logo: "/skills/tf.png", value: 50 },
+  { name: "Keras", logo: "/skills/keras.png", value: 50 },
+  { name: "Streamlit", logo: "/skills/streamlit.png", value: 50 },
   { name: "Tableau", logo: "/skills/tableau.webp", value: 60 },
 ];
 const frontEndSkills = [
@@ -42,6 +44,7 @@ const backEndSkills = [
   { name: "Node.js", logo: "/skills/node.png", value: 50 },
   { name: "Express", logo: "/skills/express.png", value: 20 },
   { name: "MongoDB", logo: "/skills/mongodb.png", value: 20 },
+  { name: "FastAPI", logo: "/skills/fastapi.png", value: 20 },
 ];
 
 // Gabungkan front-end dan back-end untuk kategori web

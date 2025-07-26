@@ -194,6 +194,51 @@ const portfolioData = [
       { name: "CSS", logo: "/skills/css.png" },
     ],
   },
+  {
+    id: 8,
+    title: "Skin Type Classification using CNN",
+    date: "2025-06",
+    category: "web-dev",
+    images: ["/portfolio/portfolio.png"],
+    description:
+      "Developed a CNN model to classify facial skin types (oily, dry, normal) to assist skincare beginners in selecting suitable products. Improved validation accuracy using data augmentation, batch normalization, dropout, and learning rate scheduling. Deployed via Streamlit for real-time image-based prediction.",
+    githubLink: "https://github.com/Fadhola/Skin-Type-Classification-with-CNN",
+    liveLink: "https://huggingface.co/spaces/fadhol/skin-type-recognition",
+    technologies: [
+      { name: "Python", logo: "/skills/py.png" },
+      { name: "TensorFlow", logo: "/skills/tf.png" },
+      { name: "Keras", logo: "/skills/keras.png" },
+      { name: "Scikit-learn", logo: "/skills/sklearn.png" },
+      { name: "Pandas", logo: "/skills/pandas.png" },
+      { name: "Matplotlib", logo: "/skills/matplotlib.png" },
+      { name: "Seaborn", logo: "/skills/seaborn.png" },
+    ],
+  },
+  {
+    id: 9,
+    title: "BPJSChaBo (BPJS Chatbot with NLP & RAG Pipeline)",
+    date: "2025-04",
+    category: "web-dev",
+    images: ["/portfolio/portfolio.png"],
+    description:
+      "Developed an AI-powered chatbot that provides real-time, accurate answers to BPJS-related questions by leveraging RAG (Retrieval-Augmented Generation) and NLP techniques. Collaborated in a team of 5 as the Data Engineer, responsible for collecting, cleaning, validating, and storing data from official BPJS sources. Designed an end-to-end data pipeline including MongoDB vector storage and deployed the app on Hugging Face using Streamlit.",
+    githubLink:
+      "https://github.com/FTDS-assignment-bay/p2-final-project-ftds-043-rmt-group-003",
+    liveLink:
+      "https://huggingface.co/spaces/ifananwar/p2-final-project-ftds-043-rmt-group-003",
+    technologies: [
+      { name: "Python", logo: "/skills/py.png" },
+      { name: "LangChain", logo: "/skills/langhain.png" },
+      { name: "Streamlit", logo: "/skills/streamlit.png" },
+      { name: "MongoDB Atlas Vector Search", logo: "/skills/mongodb.png" },
+      { name: "Gemini Flash", logo: "/skills/gemini15.jpeg" },
+      { name: "Deepseek-V3/R1", logo: "/skills/deepseek.png" },
+      { name: "Scikit-learn", logo: "/skills/sklearn.png" },
+      { name: "Pandas", logo: "/skills/pandas.png" },
+      { name: "Matplotlib", logo: "/skills/matplotlib.png" },
+      { name: "Seaborn", logo: "/skills/seaborn.png" },
+    ],
+  },
 ];
 
 const Portfolio = () => {
