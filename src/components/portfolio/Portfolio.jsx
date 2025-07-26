@@ -228,7 +228,7 @@ const portfolioData = [
       "https://huggingface.co/spaces/ifananwar/p2-final-project-ftds-043-rmt-group-003",
     technologies: [
       { name: "Python", logo: "/skills/py.png" },
-      { name: "LangChain", logo: "/skills/langhain.png" },
+      { name: "LangChain", logo: "/skills/langchain.png" },
       { name: "Streamlit", logo: "/skills/streamlit.png" },
       { name: "MongoDB Atlas Vector Search", logo: "/skills/mongodb.png" },
       { name: "Gemini Flash", logo: "/skills/gemini15.jpeg" },
