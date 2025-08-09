@@ -39,7 +39,7 @@ const SkillBox = ({ logo, name, value }) => {
         <img src={logo} alt={name} className="skill-logo" loading="lazy" />
       </div>
       <div className="skill-info">
-        <span className="skill-progress-text">{value}%</span>
+        {/* <span className="skill-progress-text">{value}%</span> */}
         <span className="skill-name">{name}</span>
       </div>
     </div>

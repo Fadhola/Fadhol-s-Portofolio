@@ -57,7 +57,8 @@ const portfolioData = [
       "https://via.placeholder.com/400x300/36ba98/ffffff?text=DA+2C",
     ],
     description:
-      "An interactive dashboard built with Tableau to analyze and identify strategies for increasing Road Bike sales revenue in Canada (2014–2016).",
+      "A data-driven project using Python and Tableau to design strategies for increasing Road Bike revenue in Canada (2014–2016). This includes statistical comparisons between countries, seasonal trend analysis, customer segmentation, and province-level insights—culminating in a Tableau dashboard tailored for sales strategy.",
+
     githubLink: "https://github.com/Fadhola/Road-Bikes-Revenue-Strategy",
     liveLink:
       "https://public.tableau.com/views/P0M1_fadhola_asandi_dashboard/Dashboard1",
