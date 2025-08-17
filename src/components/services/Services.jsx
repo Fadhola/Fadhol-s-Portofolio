@@ -8,17 +8,17 @@ const servicesData = [
   {
     title: "Data Science & Analytics",
     description:
-      "Mengolah data mentah menjadi insight berharga menggunakan analisis statistik, machine learning, dan visualisasi data.",
+      "Transforming raw data into valuable insights using statistical analysis, machine learning, and data visualization.",
   },
   {
     title: "Front-end Development",
     description:
-      "Membangun antarmuka web yang interaktif dan user-friendly menggunakan HTML, CSS, dan JavaScript.",
+      "Building interactive and user-friendly web interfaces using HTML, CSS, and JavaScript.",
   },
   {
     title: "Back-end Development",
     description:
-      "Menyusun logika server dan API untuk mendukung kebutuhan data dan fungsionalitas aplikasi.",
+      "Developing server logic and APIs to support application data and functionality needs.",
   },
 ];
 

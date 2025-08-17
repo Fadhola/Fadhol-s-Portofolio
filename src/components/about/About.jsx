@@ -17,17 +17,22 @@ const About = () => {
     {
       year: "2021 - 2025",
       icon: <FaGraduationCap />,
-      title: "S1 Sistem Informasi – Universitas Amikom Yogyakarta",
+      title:
+        "Bachelor's Degree in Information Systems – Universitas Amikom Yogyakarta",
       desc: (
         <>
-          Lulus dengan predikat <strong>Cum Laude</strong>, IPK 3.75. Selama
-          kuliah aktif mengikuti program eksternal dan studi independen:
+          Graduated with <strong>Cum Laude</strong> honors, GPA 3.75. Actively
+          participated in Kampus Merdeka&apos;s Certified Independent Study
+          (MSIB) programs to enhance skills through external learning
+          experiences:
           <ul className="list-disc pl-5 mt-2 space-y-1">
             <li>
-              Semester 5: <br></br>Dicoding (2023) – Full-Stack Web Developer
+              Semester 5: <br></br>
+              Dicoding (2023) – Front-End & Backend Web Developer
             </li>
             <li>
-              Semester 6: <br></br>Tech Academy RevoU (2024) – Data Analytics
+              Semester 6: <br></br>
+              Tech Academy RevoU (2024) – Data Analytics & Software Engineering
             </li>
           </ul>
         </>
@@ -36,8 +41,8 @@ const About = () => {
     {
       year: "2025",
       icon: <FaUsers />,
-      title: "Lulus Bootcamp Hacktiv8",
-      desc: "Full-Time Bootcamp Data Science & Analyst. Fokus pada Python, SQL, Machine Learning, data engineering dan analisis bisnis berbasis proyek.",
+      title: "Hacktiv8 Bootcamp Graduate",
+      desc: "Full-Time Bootcamp in Data Science & Analytics. Focused on Python, SQL, Machine Learning, data engineering, and project-based business analysis.",
     },
   ];
 
@@ -55,20 +60,21 @@ const About = () => {
             data-aos-delay="100"
           >
             <p>
-              Saya adalah lulusan <strong>Sistem Informasi</strong> yang kini
-              fokus di bidang <strong>Data Analytics dan Data Science</strong>.
-              Selama kuliah, saya aktif mengikuti program{" "}
-              <strong>Studi Independen Kampus Merdeka</strong> untuk mendalami
-              web development dan data analytics dengan AI tools.
+              I am a graduate in <strong>Information Systems</strong> with a
+              current focus on <strong>Data Analytics and Data Science</strong>.
+              During my undergraduate studies, I actively participated in the{" "}
+              <strong>Kampus Merdeka Independent Study</strong> programs to
+              deepen my understanding of web development and data analytics
+              using AI tools.
             </p>
             <br />
             <p>
-              Setelah lulus, saya memperkuat kemampuan saya di dunia data dengan
-              mengikuti bootcamp{" "}
-              <strong>Full-Time Data Science & Analyst</strong> di Hacktiv8.
-              Saya percaya bahwa kombinasi <strong>penguasaan teknis</strong>{" "}
-              dan <strong>kemampuan komunikasi data</strong> akan sangat penting
-              dalam menghadirkan solusi yang berdampak lewat teknologi.
+              After graduation, I enhanced my skills in the data field by
+              joining a <strong>Full-Time Data Science & Analyst</strong>{" "}
+              bootcamp at Hacktiv8. I believe that a combination of{" "}
+              <strong>technical proficiency</strong> and{" "}
+              <strong>data communication skills</strong> is essential for
+              delivering impactful solutions through technology.
             </p>
           </div>
 
