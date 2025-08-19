@@ -1,48 +1,48 @@
-import React, { useRef, useState, useEffect } from 'react'
-import emailjs from '@emailjs/browser'
-import { FaInstagram, FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-import './contact.css'
+import React, { useRef, useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
+import { FaInstagram, FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import "./contact.css";
 
 const Contact = () => {
-  const form = useRef()
-  const [resultMessage, setResultMessage] = useState(null)
+  const form = useRef();
+  const [resultMessage, setResultMessage] = useState(null);
 
   const sendEmail = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     emailjs
       .sendForm(
-        'service_wh6v2rk', // service ID
-        'template_mcsqai9', // template ID
+        "service_wh6v2rk", // service ID
+        "template_mcsqai9", // template ID
         form.current,
-        'ksSlBWF_lIudd3SFX' // public key
+        "ksSlBWF_lIudd3SFX" // public key
       )
       .then(
         (result) => {
-          console.log('Email sent:', result.text)
+          console.log("Email sent:", result.text);
           setResultMessage({
-            type: 'success',
-            text: 'Your message has been sent successfully! Thank you for contacting us.',
-          })
-          e.target.reset()
-          setTimeout(() => setResultMessage(null), 5000)
+            type: "success",
+            text: "Your message has been sent successfully! Thank you for contacting us.",
+          });
+          e.target.reset();
+          setTimeout(() => setResultMessage(null), 5000);
         },
         (error) => {
-          console.log('Failed to send email:', error.text)
+          console.log("Failed to send email:", error.text);
           setResultMessage({
-            type: 'error',
-            text: 'Oops! Something went wrong. Please try again later.',
-          })
-          setTimeout(() => setResultMessage(null), 5000)
+            type: "error",
+            text: "Oops! Something went wrong. Please try again later.",
+          });
+          setTimeout(() => setResultMessage(null), 5000);
         }
-      )
-  }
+      );
+  };
 
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true })
-  }, [])
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   return (
     <section className="contact" data-aos="fade-up">
@@ -101,8 +101,7 @@ const Contact = () => {
         <div className="contact-info" data-aos="fade-up" data-aos-delay="600">
           <h2>Contact Info</h2>
           <p>
-            Email:{' '}
-            <a href="mailto:fadholasandi@gmail.com">fadholasandi@gmail.com</a>
+            Email: <a href="mailto:"></a>
           </p>
           <p>
             Phone: <a href="tel:"></a>
@@ -142,7 +141,7 @@ const Contact = () => {
         </div>
       )}
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
