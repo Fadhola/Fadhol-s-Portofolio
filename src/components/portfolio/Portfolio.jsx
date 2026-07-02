@@ -1,5 +1,5 @@
 // Portfolio.jsx
-import { useState, Suspense, lazy, useEffect } from "react";
+import { useState, useRef, Suspense, lazy, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./portfolio.css";
@@ -28,10 +28,10 @@ const portfolioData = [
     date: "2024-04",
     category: ["data-analyst", "web-dev"],
     images: [
-      "/portfolio/RevoU/1.png",
-      "/portfolio/RevoU/2.png",
-      "/portfolio/RevoU/3.png",
-      "/portfolio/RevoU/4.png",
+      "/portfolio/RevoU/1.webp",
+      "/portfolio/RevoU/2.webp",
+      "/portfolio/RevoU/3.webp",
+      "/portfolio/RevoU/4.webp",
     ],
     description:
       "Capstone Project dari program Studi Independen RevoU x MSIB Cycle 6, dikerjakan oleh tim beranggotakan 12 orang. Saya berperan sebagai Data Analyst sekaligus Front-End Developer. Pada tahap analisis, saya melakukan eksplorasi terhadap efektivitas strategi diskon superstore berdasarkan data historis (2014–2017). Selanjutnya, saya mengubah dashboard Looker Studio menjadi website dashboard statis menggunakan HTML, CSS, dan JavaScript.",
@@ -52,7 +52,7 @@ const portfolioData = [
     date: "2025-05",
     category: "data-analyst",
     images: [
-      "/portfolio/data2.png",
+      "/portfolio/data2.webp",
       "https://via.placeholder.com/400x300/36ba98/ffffff?text=DA+2B",
       "https://via.placeholder.com/400x300/36ba98/ffffff?text=DA+2C",
     ],
@@ -75,7 +75,7 @@ const portfolioData = [
     date: "2025-06",
     category: "data-analyst",
     images: [
-      "/portfolio/data3.png",
+      "/portfolio/data3.webp",
       "https://via.placeholder.com/400x300/36ba98/ffffff?text=DA+3B",
       "https://via.placeholder.com/400x300/36ba98/ffffff?text=DA+3C",
     ],
@@ -98,7 +98,7 @@ const portfolioData = [
     date: "2025-06",
     category: "data-analyst",
     images: [
-      "/portfolio/data4.jpg",
+      "/portfolio/data4.webp",
       "https://via.placeholder.com/400x300/36ba98/ffffff?text=Ecom+4B",
       "https://via.placeholder.com/400x300/36ba98/ffffff?text=Ecom+4C",
     ],
@@ -125,9 +125,9 @@ const portfolioData = [
     date: "2024-11",
     category: "web-dev",
     images: [
-      "/portfolio/web1.png",
-      "/portfolio/web1.1.png",
-      "/portfolio/web1.2.png",
+      "/portfolio/web1.webp",
+      "/portfolio/web1.1.webp",
+      "/portfolio/web1.2.webp",
     ],
     description:
       "Dashboard interaktif berbasis web untuk analisis visualisasi data Superstore menggunakan arsitektur full-stack (Vite + Express.js) dan database MongoDB. Menyediakan fitur autentikasi, manajemen dataset (unggah/edit/hapus), serta visualisasi data penjualan dan profit secara real-time.",
@@ -149,19 +149,19 @@ const portfolioData = [
     date: "2023-11",
     category: "web-dev",
     images: [
-      "/portfolio/MentalCare/1.png",
-      "/portfolio/MentalCare/2.png",
-      "/portfolio/MentalCare/3.png",
-      "/portfolio/MentalCare/4.png",
-      "/portfolio/MentalCare/7.png",
-      "/portfolio/MentalCare/8.png",
-      "/portfolio/MentalCare/9.png",
-      "/portfolio/MentalCare/10.png",
-      "/portfolio/MentalCare/11.png",
-      "/portfolio/MentalCare/12.png",
-      "/portfolio/MentalCare/13.png",
-      "/portfolio/MentalCare/14.png",
-      "/portfolio/MentalCare/15.png",
+      "/portfolio/MentalCare/1.webp",
+      "/portfolio/MentalCare/2.webp",
+      "/portfolio/MentalCare/3.webp",
+      "/portfolio/MentalCare/4.webp",
+      "/portfolio/MentalCare/7.webp",
+      "/portfolio/MentalCare/8.webp",
+      "/portfolio/MentalCare/9.webp",
+      "/portfolio/MentalCare/10.webp",
+      "/portfolio/MentalCare/11.webp",
+      "/portfolio/MentalCare/12.webp",
+      "/portfolio/MentalCare/13.webp",
+      "/portfolio/MentalCare/14.webp",
+      "/portfolio/MentalCare/15.webp",
     ],
     description:
       "Capstone Project dari program Studi Independen Bersertifikat (SIB) Cycle 5 Dicoding. Saya berperan sebagai frontend developer bersama 1 rekan lainnya, mengimplementasikan desain UI/UX ke dalam kode menggunakan Bootstrap. Website ini bertujuan menyediakan informasi dan dukungan bagi penderita gangguan kesehatan mental. Backend dikembangkan dengan Laravel 10.",
@@ -180,7 +180,7 @@ const portfolioData = [
     title: "Personal Portfolio Website",
     date: "2025-04",
     category: "web-dev",
-    images: ["/portfolio/portfolio.png"],
+    images: ["/portfolio/portfolio.webp"],
     description:
       "Website portfolio pribadi yang menampilkan berbagai proyek, sertifikat, dan informasi kontak. Dibangun menggunakan React dan Vite dengan integrasi Three.js untuk efek visual 3D, Swiper untuk carousel, dan AOS untuk animasi scroll.",
     githubLink: "https://github.com/Fadhola/Fadhol-s-Portofolio",
@@ -200,7 +200,7 @@ const portfolioData = [
     title: "Skin Type Classification using CNN",
     date: "2025-06",
     category: "data-analyst",
-    images: ["/portfolio/skinpredict.png", "/portfolio/skineda.png"],
+    images: ["/portfolio/skinpredict.webp", "/portfolio/skineda.webp"],
     description:
       "Developed a CNN model to classify facial skin types (oily, dry, normal) to assist skincare beginners in selecting suitable products. Improved validation accuracy using data augmentation, batch normalization, dropout, and learning rate scheduling. Deployed via Streamlit for real-time image-based prediction.",
     githubLink: "https://github.com/Fadhola/Skin-Type-Classification-with-CNN",
@@ -220,7 +220,7 @@ const portfolioData = [
     title: "BPJSChaBo (BPJS Chatbot with NLP & RAG Pipeline)",
     date: "2025-04",
     category: "data-analyst",
-    images: ["/portfolio/chabo.png"],
+    images: ["/portfolio/chabo.webp"],
     description:
       "Developed an AI-powered chatbot that provides real-time, accurate answers to BPJS-related questions by leveraging RAG (Retrieval-Augmented Generation) and NLP techniques. Collaborated in a team of 5 as the Data Engineer, responsible for collecting, cleaning, validating, and storing data from official BPJS sources. Designed an end-to-end data pipeline including MongoDB vector storage and deployed the app on Hugging Face using Streamlit.",
     githubLink:
@@ -240,11 +240,110 @@ const portfolioData = [
       { name: "Seaborn", logo: "/skills/seaborn.png" },
     ],
   },
+  {
+    id: 10,
+    title: "TRAIN-O — Digital Upskilling Platform for Construction Workers",
+    date: "2026-06",
+    category: ["web-dev", "ai-engineer"],
+    images: [
+      "https://via.placeholder.com/400x300/36ba98/ffffff?text=AI+10A",
+      "https://via.placeholder.com/400x300/36ba98/ffffff?text=AI+10B",
+      "https://via.placeholder.com/400x300/36ba98/ffffff?text=AI+10C",
+    ],
+    description:
+      "Built a full-stack MVP platform solo from scratch using Claude Code, orchestrating parallel subagents, MCP integrations (Vercel, GitHub, Supabase), and specialized plugins (VoltAgent, UI/UX Pro Max, Frontend Designer) to build concurrently across frontend, backend, and infra layers. Delivered a live production system (Vue3 web + Expo React Native mobile + Node.js/Express API + PostgreSQL) with auth and real-time progress tracking via WebSocket, applying multi-agent orchestration, skills, hooks, and token-efficient patterns as a first-time Claude Code user.",
+    githubLink: null,
+    liveLink: null,
+    technologies: [
+      { name: "Vue 3", logo: "/skills/vue.png" },
+      { name: "Expo React Native", logo: "/skills/expo.png" },
+      { name: "Node.js", logo: "/skills/node.png" },
+      { name: "Express", logo: "/skills/express.png" },
+      { name: "PostgreSQL", logo: "/skills/postgresql.png" },
+      { name: "Tailwind CSS", logo: "/skills/tailwindcss.png" },
+      { name: "JWT", logo: "/skills/jwt.png" },
+      { name: "Socket.io", logo: "/skills/socketio.png" },
+    ],
+  },
+  {
+    id: 11,
+    title: "Tool-Enabled AI Agent System (Jatis Mobile Internship)",
+    date: "2026-02",
+    category: "ai-engineer",
+    images: [
+      "https://via.placeholder.com/400x300/36ba98/ffffff?text=AI+11A",
+      "https://via.placeholder.com/400x300/36ba98/ffffff?text=AI+11B",
+    ],
+    description:
+      "Designed and implemented a production-ready tool-enabled AI agent that processes user queries, decides whether to call external tools, executes them, evaluates safety via guardrails, and returns structured responses. Built three modular tools including structured database queries (PostgreSQL), external API simulation with retry/timeout handling, and a deterministic guardrail risk evaluation system, with a tool registry, structured JSON logging, and unit tests for reliability.",
+    githubLink: null,
+    liveLink: null,
+    technologies: [
+      { name: "Python", logo: "/skills/py.png" },
+      { name: "FastAPI", logo: "/skills/fastapi.png" },
+      { name: "PostgreSQL", logo: "/skills/postgresql.png" },
+      { name: "Pydantic", logo: "/skills/pydantic.png" },
+      { name: "Ollama", logo: "/skills/ollama.png" },
+    ],
+  },
+  {
+    id: 12,
+    title: "Customer Support Knowledge RAG System (Jatis Mobile Internship)",
+    date: "2026-01",
+    category: "ai-engineer",
+    images: [
+      "https://via.placeholder.com/400x300/36ba98/ffffff?text=AI+12A",
+      "https://via.placeholder.com/400x300/36ba98/ffffff?text=AI+12B",
+    ],
+    description:
+      "Collaborated in a team of 4 to enhance a RAG system for customer support queries covering pricing, subscriptions, and product features. Implemented the Confidence Scoring & Refusal Logic module using NLI models to detect contradictions across retrieved contexts, and designed rule-based refusal conditions based on retrieval relevance, conflict severity, and confidence thresholds to reduce hallucinated answers.",
+    githubLink: null,
+    liveLink: null,
+    technologies: [
+      { name: "Python", logo: "/skills/py.png" },
+      { name: "FastAPI", logo: "/skills/fastapi.png" },
+      { name: "PostgreSQL", logo: "/skills/postgresql.png" },
+      { name: "PyTorch", logo: "/skills/pytorch.png" },
+      { name: "Ollama", logo: "/skills/ollama.png" },
+    ],
+  },
+  {
+    id: 13,
+    title: "Production-Ready RAG System (Jatis Mobile Internship)",
+    date: "2025-12",
+    category: "ai-engineer",
+    images: [
+      "https://via.placeholder.com/400x300/36ba98/ffffff?text=AI+13A",
+      "https://via.placeholder.com/400x300/36ba98/ffffff?text=AI+13B",
+    ],
+    description:
+      "Developed a modular RAG pipeline capable of processing multi-format documents including text, PDFs, tables, and images via OCR. Implemented document ingestion, chunking, embedding generation, and vector similarity search with PostgreSQL + pgvector. Added safety safeguards such as prompt-injection detection, token limits, duplicate chunk removal, and fallback responses, deployed via a FastAPI REST API — achieving 90% retrieval accuracy.",
+    githubLink: null,
+    liveLink: null,
+    technologies: [
+      { name: "Python", logo: "/skills/py.png" },
+      { name: "FastAPI", logo: "/skills/fastapi.png" },
+      { name: "PostgreSQL", logo: "/skills/postgresql.png" },
+      { name: "Hugging Face", logo: "/skills/huggingface.png" },
+      { name: "Ollama", logo: "/skills/ollama.png" },
+    ],
+  },
 ];
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedItem, setSelectedItem] = useState(null);
+  const triggerRef = useRef(null);
+
+  const openModal = (item, event) => {
+    triggerRef.current = event.currentTarget;
+    setSelectedItem(item);
+  };
+
+  const closeModal = () => {
+    setSelectedItem(null);
+    triggerRef.current?.focus();
+  };
 
   // filter + sort by date desc
   const filteredData =
@@ -270,16 +369,17 @@ const Portfolio = () => {
 
   return (
     <section className="portfolio-hero">
-      <h1 className="portfolio-title" data-aos="fade-down">
+      <h2 className="portfolio-title" data-aos="fade-down">
         Portfolio
-      </h1>
+      </h2>
       <p className="portfolio-subtitle" data-aos="fade-up">
-        Showcasing my journey in data science and web development.
+        Showcasing my journey in AI engineering, data science, and web development.
       </p>
 
       <div className="portfolio-filters">
         {[
           { key: "all", label: "All" },
+          { key: "ai-engineer", label: "AI Engineering" },
           { key: "data-analyst", label: "Data Analyst & Science" },
           { key: "web-dev", label: "Web Development" },
         ].map(({ key, label }) => (
@@ -332,7 +432,8 @@ const Portfolio = () => {
           <SwiperSlide
             key={item.id}
             // style={{ width: "300px" }}
-            onClick={() => setSelectedItem(item)}
+            tabIndex={-1}
+            onClick={(e) => openModal(item, e)}
           >
             <div className="portfolio-card">
               <img src={item.images[0]} alt={item.title} loading="lazy" />
@@ -363,10 +464,7 @@ const Portfolio = () => {
 
       {selectedItem && (
         <Suspense fallback={<div>Loading modal...</div>}>
-          <PortfolioModal
-            selectedItem={selectedItem}
-            closeModal={() => setSelectedItem(null)}
-          />
+          <PortfolioModal selectedItem={selectedItem} closeModal={closeModal} />
         </Suspense>
       )}
     </section>

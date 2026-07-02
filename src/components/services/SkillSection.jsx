@@ -57,8 +57,9 @@ const SkillSection = ({
         Core Skills
       </h2>
       <p className="skill-section-subtitle" data-aos="fade-left">
-        My focus is on data science and analysis, with a supporting background
-        in front-end and back-end web development.
+        Focused on AI/LLM engineering — RAG pipelines, AI agents, and
+        confidence-aware systems — backed by a data science and full-stack
+        development foundation.
       </p>
 
       <div className="skill-buttons">
@@ -67,6 +68,12 @@ const SkillSection = ({
           onClick={() => setActiveSkillCategory("all")}
         >
           All
+        </button>
+        <button
+          className={activeSkillCategory === "ai" ? "active" : ""}
+          onClick={() => setActiveSkillCategory("ai")}
+        >
+          AI & LLM
         </button>
         <button
           className={activeSkillCategory === "data" ? "active" : ""}

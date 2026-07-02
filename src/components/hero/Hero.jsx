@@ -3,11 +3,12 @@ import { Canvas } from '@react-three/fiber'
 import './hero.css'
 import { motion } from 'motion/react'
 import { FaPaperPlane } from 'react-icons/fa'
+import Nav from './Nav'
+import VirtualBadge from './VirtualBadge'
 
 // Lazy load komponen yang tidak krusial untuk tampilan awal
 const Speech = lazy(() => import('./Speech'))
 const Shape = lazy(() => import('./Shape'))
-import VirtualBadge from './VirtualBadge'
 
 const awardVariants = {
   initial: { x: -100, opacity: 0 },
@@ -29,6 +30,7 @@ const followVariants = {
 const Hero = () => {
   return (
     <div className="hero">
+      <Nav />
       <div className="hSection left">
         <motion.h1
           initial={{ y: -100, opacity: 0 }}
@@ -104,7 +106,6 @@ const Hero = () => {
         </Canvas>
       </div>
       <div className="hImg">
-        {/* VirtualBadge langsung diimpor tanpa Suspense lazy loading */}
         <VirtualBadge />
       </div>
     </div>

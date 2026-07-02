@@ -63,9 +63,13 @@
   padding: 2rem 0;
   overflow: hidden;
 }
+.portfolio-swiper .swiper-wrapper {
+  cursor: pointer !important;
+}
 .portfolio-swiper .swiper-slide {
   display: flex;
   justify-content: center;
+  cursor: pointer;
 }
 
 /* kembalikan styling card-mu */
@@ -81,9 +85,9 @@
 }
 .portfolio-card img {
   width: 100%;
-  height: auto;
-  /* aspect-ratio: 4 / 3; */
-  object-fit: contain;
+  height: 150px;
+  object-fit: cover;
+  object-position: top center;
 }
 
 .portfolio-card .card-content {
@@ -220,12 +224,6 @@
 } */
 
 /* MODAL */
-/* sedikit padding buat slider */
-.swiper-slide img {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-}
 .modal-swipper {
   width: 100%;
   padding-top: 50px;
@@ -275,18 +273,51 @@
   text-align: center;
   position: relative;
   overflow-x: hidden;
+  overflow-y: auto;
   max-height: 90vh;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Cap the carousel's share of the modal's 90vh budget so the image
+   doesn't dominate the box before the title/description/tech/links below
+   it are visible. Scoped to the modal carousel only (`.modal-swiper`),
+   not the main page's `.portfolio-swiper` cards. */
+.modal-content .modal-swiper img {
+  width: 100%;
+  height: auto;
+  max-height: 45vh;
+  object-fit: contain;
+  border-radius: 6px;
+  margin: 0 auto;
+}
+
 .modal-close {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 12px;
   cursor: pointer;
   font-size: 1.5rem;
-  color: #333;
+  line-height: 1;
+  color: #fff;
+  background: transparent;
+  border: none;
+}
+
+.modal-close:hover {
+  color: #36ba98;
+}
+
+.modal-close:focus-visible {
+  outline: 2px solid #36ba98;
+  outline-offset: -4px;
+  border-radius: 4px;
 }
 
 .modal-slider img {

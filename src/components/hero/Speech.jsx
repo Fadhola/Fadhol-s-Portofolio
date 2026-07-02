@@ -12,13 +12,13 @@ const Speech = () => {
         <TypeAnimation
           sequence={[
             1000,
-            "Turning data into decisions.",
+            "AI Engineer building production-ready LLM apps.",
             1000,
-            "Scientist at heart, web dev by training.",
+            "RAG systems, AI agents, confidence-aware pipelines.",
             1000,
-            "Analyzing patterns, building solutions.",
+            "Data scientist at heart, full-stack by training.",
             1000,
-            "Frontend? Backend? Been there.",
+            "Claude Code + multi-agent orchestration, daily driver.",
             1000,
             "Still learning, always improving.",
             1000,

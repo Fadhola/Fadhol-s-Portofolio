@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
-import { FaInstagram, FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./contact.css";
@@ -46,9 +46,9 @@ const Contact = () => {
 
   return (
     <section className="contact" data-aos="fade-up">
-      <h1 className="contact-title" data-aos="fade-down">
+      <h2 className="contact-title" data-aos="fade-down">
         Get In Touch
-      </h1>
+      </h2>
       <p className="contact-subtitle" data-aos="fade-up" data-aos-delay="200">
         Feel free to drop a message if you have any questions or just want to
         say hi!
@@ -100,13 +100,7 @@ const Contact = () => {
         </form>
         <div className="contact-info" data-aos="fade-up" data-aos-delay="600">
           <h2>Contact Info</h2>
-          <p>
-            Email: <a href="mailto:"></a>
-          </p>
-          <p>
-            Phone: <a href="tel:"></a>
-          </p>
-          <p>Location: Yogyakarta, Indonesia</p>
+          <p>Location: Jakarta, Indonesia</p>
           <div className="social-links">
             <a
               href="https://instagram.com/fadholasa"

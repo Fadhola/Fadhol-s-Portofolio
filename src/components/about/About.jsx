@@ -44,6 +44,22 @@ const About = () => {
       title: "Hacktiv8 Bootcamp Graduate",
       desc: "Full-Time Bootcamp in Data Science & Analytics. Focused on Python, SQL, Machine Learning, data engineering, and project-based business analysis.",
     },
+    {
+      year: "Nov 2025 – May 2026",
+      icon: <FaLaptopCode />,
+      title: "AI Engineer (Internship) – Jatis Mobile",
+      desc: (
+        <>
+          Built a modular <strong>RAG pipeline</strong> from scratch
+          (multi-format ingestion, chunking, pgvector search) and a{" "}
+          <strong>tool-enabled AI agent</strong> with guardrails and refusal
+          logic. Owned Confidence Scoring & Refusal Logic on a team RAG
+          project, then led root-cause analysis on the company&apos;s
+          chunking pipeline — the adaptive-chunking redesign I proposed was
+          adopted as the official architecture.
+        </>
+      ),
+    },
   ];
 
   return (
@@ -60,21 +76,23 @@ const About = () => {
             data-aos-delay="100"
           >
             <p>
-              I am a graduate in <strong>Information Systems</strong> with a
-              current focus on <strong>Data Analytics and Data Science</strong>.
-              During my undergraduate studies, I actively participated in the{" "}
-              <strong>Kampus Merdeka Independent Study</strong> programs to
-              deepen my understanding of web development and data analytics
-              using AI tools.
+              I am an <strong>AI Engineer</strong> with hands-on experience
+              building production-ready LLM applications — including{" "}
+              <strong>RAG systems</strong>, <strong>tool-enabled AI agents</strong>,
+              and <strong>confidence-aware AI pipelines</strong>. I design
+              modular AI architectures, implement guardrails and refusal
+              logic for safe AI responses, and integrate vector databases
+              into production systems.
             </p>
             <br />
             <p>
-              After graduation, I enhanced my skills in the data field by
-              joining a <strong>Full-Time Data Science & Analyst</strong>{" "}
-              bootcamp at Hacktiv8. I believe that a combination of{" "}
-              <strong>technical proficiency</strong> and{" "}
-              <strong>data communication skills</strong> is essential for
-              delivering impactful solutions through technology.
+              My foundation is in <strong>Information Systems</strong>{" "}
+              (Universitas Amikom Yogyakarta) and{" "}
+              <strong>Data Science & Analytics</strong> (Hacktiv8), built
+              through Kampus Merdeka&apos;s Independent Study programs. I now
+              leverage <strong>Claude Code</strong> with multi-agent
+              orchestration, MCP integrations, and parallel subagents to
+              compress solo build cycles from weeks to days.
             </p>
           </div>
 

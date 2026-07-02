@@ -6,23 +6,34 @@ import "./services.css";
 /* Data Services (cards) */
 const servicesData = [
   {
+    title: "AI & LLM Engineering",
+    description:
+      "Building production-ready LLM applications — RAG pipelines, tool-enabled AI agents, guardrails, and confidence-aware pipelines that know when to refuse a low-confidence answer.",
+  },
+  {
     title: "Data Science & Analytics",
     description:
       "Transforming raw data into valuable insights using statistical analysis, machine learning, and data visualization.",
   },
   {
-    title: "Front-end Development",
+    title: "Full-Stack Development",
     description:
-      "Building interactive and user-friendly web interfaces using HTML, CSS, and JavaScript.",
-  },
-  {
-    title: "Back-end Development",
-    description:
-      "Developing server logic and APIs to support application data and functionality needs.",
+      "Building interactive web interfaces and the APIs behind them — from FastAPI/Node.js backends to React/Vue frontends.",
   },
 ];
 
 /* Data Skills */
+const aiSkills = [
+  { name: "LangChain", logo: "/skills/langchain.png", value: 100 },
+  { name: "FastAPI", logo: "/skills/fastapi.png", value: 100 },
+  { name: "Pydantic", logo: "/skills/pydantic.png", value: 100 },
+  { name: "Hugging Face", logo: "/skills/huggingface.png", value: 100 },
+  { name: "Ollama", logo: "/skills/ollama.png", value: 100 },
+  { name: "PyTorch", logo: "/skills/pytorch.png", value: 100 },
+  { name: "pgvector", logo: "/skills/postgresql.png", value: 100 },
+  { name: "Docker", logo: "/skills/docker.png", value: 100 },
+];
+
 const dataSkills = [
   { name: "Python", logo: "/skills/py.png", value: 100 },
   { name: "SQL", logo: "/skills/sql.jpg", value: 100 },
@@ -44,7 +55,7 @@ const backEndSkills = [
   { name: "Node.js", logo: "/skills/node.png", value: 100 },
   { name: "Express", logo: "/skills/express.png", value: 100 },
   { name: "MongoDB", logo: "/skills/mongodb.png", value: 100 },
-  { name: "FastAPI", logo: "/skills/fastapi.png", value: 100 },
+  { name: "PostgreSQL", logo: "/skills/postgresql.png", value: 100 },
 ];
 
 // Gabungkan front-end dan back-end untuk kategori web
@@ -59,7 +70,9 @@ const Services = () => {
   // Jika "all" dipilih, gabungkan semua skill, selain itu pilih sesuai kategori
   const displayedSkills =
     activeSkillCategory === "all"
-      ? [...webSkills, ...dataSkills]
+      ? [...aiSkills, ...webSkills, ...dataSkills]
+      : activeSkillCategory === "ai"
+      ? aiSkills
       : activeSkillCategory === "web"
       ? webSkills
       : dataSkills;
@@ -73,12 +86,12 @@ const Services = () => {
 
   return (
     <section className="services-section">
-      <h1 className="services-title" data-aos="fade-down">
+      <h2 className="services-title" data-aos="fade-down">
         My Services
-      </h1>
+      </h2>
       <p className="services-subtitle" data-aos="fade-up">
-        Analyzing data with a scientist&apos;s mind and building web tools to
-        bring it to life.
+        Building production-ready AI systems — with a full-stack development
+        and data science foundation to back it up.
       </p>
       <div className="services-grid">
         {servicesData.map((service, index) => (

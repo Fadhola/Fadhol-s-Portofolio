@@ -1,4 +1,4 @@
-import React, { useState, Suspense, lazy, useEffect } from "react";
+import React, { useState, useRef, Suspense, lazy, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./certificate.css";
@@ -10,34 +10,37 @@ const certificates = [
   {
     id: 1,
     title: "Learn Data Analytics & Software Development with AI(MSIB 6)",
-    image: "/certificates/certiRevou.jpg",
+    image: "/certificates/certiRevou.webp",
   },
   {
     id: 2,
     title: "Front-end & Back-end(MSIB 5)",
-    image: "/certificates/certiDicoding.jpg",
+    image: "/certificates/certiDicoding.webp",
   },
   {
     id: 3,
     title: "Peserta Studi Independen Bersertifikat Angkatan 6",
-    image: "/certificates/certiMsib6.jpg",
+    image: "/certificates/certiMsib6.webp",
   },
   {
     id: 4,
     title: "Bootcamp Hacktiv8 Full-Time Data Science",
-    image: "/certificates/certiHacktiv8.png",
+    image: "/certificates/certiHacktiv8.webp",
   },
 ];
 
 const Certificate = () => {
   const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const triggerRef = useRef(null);
 
-  const openModal = (certificate) => {
+  const openModal = (certificate, event) => {
+    triggerRef.current = event.currentTarget;
     setSelectedCertificate(certificate);
   };
 
   const closeModal = () => {
     setSelectedCertificate(null);
+    triggerRef.current?.focus();
   };
 
   useEffect(() => {
@@ -46,15 +49,16 @@ const Certificate = () => {
 
   return (
     <section className="certificate-hero">
-      <h1 className="certificate-heading" data-aos="fade-down">
+      <h2 className="certificate-heading" data-aos="fade-down">
         My Collections of Certificates
-      </h1>
+      </h2>
       <div className="certificate-container">
         {certificates.map((cert, index) => (
           <div
             className={`certificate-item card-${index + 1}`}
             key={cert.id}
-            onClick={() => openModal(cert)}
+            tabIndex={-1}
+            onClick={(e) => openModal(cert, e)}
             data-aos="fade"
             data-aos-delay={index * 100}
           >
