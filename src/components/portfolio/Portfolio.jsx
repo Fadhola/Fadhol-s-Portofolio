@@ -328,6 +328,29 @@ const portfolioData = [
       { name: "Ollama", logo: "/skills/ollama.png" },
     ],
   },
+  {
+    id: 14,
+    title: "E-Commerce Intelligence Agent — Guardrailed NL-to-SQL BI Agent",
+    date: "2026-07",
+    category: ["ai-engineer", "web-dev"],
+    images: [
+      "https://via.placeholder.com/400x300/36ba98/ffffff?text=AI+14A",
+      "https://via.placeholder.com/400x300/36ba98/ffffff?text=AI+14B",
+    ],
+    description:
+      "Autonomous AI agent that answers e-commerce business questions by combining natural-language-to-SQL generation, competitor web search, and structured report generation. Built with LangGraph to orchestrate three tools — a database query tool (with sqlglot AST validation to guardrail generated SQL), a web browser tool via Tavily for competitor price monitoring, and a report generator (PDF/HTML) — backed by a FastAPI API and a Next.js dashboard, with LangSmith tracing and MCP server support.",
+    githubLink: "https://github.com/Fadhola/ecommerce-intelligence-agent",
+    liveLink: "https://ecommerce-intelligence-agent.vercel.app",
+    technologies: [
+      { name: "Python", logo: "/skills/py.png" },
+      { name: "FastAPI", logo: "/skills/fastapi.png" },
+      { name: "LangGraph", logo: "/skills/langgraph.png" },
+      { name: "Next.js", logo: "/skills/nextjs.png" },
+      { name: "TypeScript", logo: "/skills/typescript.png" },
+      { name: "PostgreSQL", logo: "/skills/postgresql.png" },
+      { name: "Docker", logo: "/skills/docker.png" },
+    ],
+  },
 ];
 
 const Portfolio = () => {
